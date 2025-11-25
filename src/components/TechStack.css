@@ -1,22 +1,72 @@
-.techStack {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-    margin-top: 2rem;
+.techStack-container {
+    position: relative;
+    width: 300px;
+    height: 150px;
+    margin: 4rem auto;
 }
 
-.techStack i {
+.techStack-track {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    fill: none;
+    stroke: var(--color-gold-dark);
+    stroke-width: 1;
+    stroke-opacity: 0.4;
+    z-index: 0;
+}
 
-    font-size: 3.5rem;
+.techStack-icons {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    /* Allows clicking through the empty container space */
+    pointer-events: none;
+}
 
-    color: var(--color-gold-dark);
+.techStack-icons i {
+    position: absolute;
+    font-size: 2.5rem; /* Adjusted size */
+    color: var(--color-gold);
+    pointer-events: auto; /* Re-enable pointer events on the icons themselves */
+    margin-left: -150px;
+    /* Must be identical to the SVG 'd' attribute */
+    offset-path: path("M 25,25 L 275,25 L 275,125 L 25,125 Z");
 
-    transition: all 0.3s ease-in-out;
-    cursor: default;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+
+    offset-rotate: 0deg;
+
+    /* Center the icon on the line */
+    offset-anchor: 50% 50%;
+
+    animation: move-rectangle 12s infinite linear;
 }
 
 
-.techStack i:hover {
-    transform: translateY(-5px);
+/* When you hover the container, pause the icons */
+.techStack-container:hover .techStack-icons i {
+    animation-play-state: paused;
+    cursor: pointer;
+}
+
+/* Staggering */
+.techStack-icons i {
+    /* 12s duration / 6 icons = 2s gap per icon */
+    animation-delay: calc(var(--i) * -2s);
+}
+
+@keyframes move-rectangle {
+    0% {
+        offset-distance: 0;
+    }
+    100% {
+        offset-distance: 100%;
+    }
 }

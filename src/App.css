@@ -4,10 +4,3 @@
     flex-direction: row;
     justify-content: space-around;
 }
-
-.profile{
-    background-color: var(--color-bg-alt);
-    padding: 100px;
-    border-radius: 10%;
-
-}

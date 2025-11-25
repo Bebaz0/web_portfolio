@@ -1,15 +1,31 @@
 import React from 'react';
-import './TechStack.css'
+import './TechStack.css';
 
 function TechStack() {
+    const icons = [
+        "devicon-react-original",
+        "devicon-css3-plain",
+        "devicon-tailwindcss-original",
+        "devicon-nodejs-plain-wordmark",
+        "devicon-postgresql-plain",
+        "devicon-cplusplus-plain"
+    ];
+
     return (
-        <div className="techStack">
-            <i className="devicon-react-original"></i>
-            <i className="devicon-css3-plain"></i>
-            <i className="devicon-tailwindcss-original"></i>
-            <i className="devicon-nodejs-plain-wordmark"></i>
-            <i className="devicon-postgresql-plain"></i>
-            <i className="devicon-cplusplus-plain"></i>
+        <div className="techStack-container">
+            <svg className="techStack-track" viewBox="0 0 300 150">
+                <path d="M 25,25 L 275,25 L 275,125 L 25,125 Z" />
+            </svg>
+
+            <div className="techStack-icons">
+                {icons.map((iconClass, index) => (
+                    <i
+                        key={index}
+                        className={iconClass}
+                        style={{ '--i': index }}
+                    ></i>
+                ))}
+            </div>
         </div>
     );
 }
