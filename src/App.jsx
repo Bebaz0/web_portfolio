@@ -1,5 +1,6 @@
 
 import './App.css'
+import TechStack from "./components/TechStack.jsx";
 
 function App() {
 
@@ -9,9 +10,9 @@ function App() {
             <img/>
             <h1>Afonso Lima</h1>
             <p>BiriBiBabidiBoo</p>
-            <div className={'techWrapper'}>
-            </div>
+            <TechStack/>
         </div>
+        <span></span>
     </div>
   )
 }

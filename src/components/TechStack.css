@@ -1,0 +1,22 @@
+.techStack {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.techStack i {
+
+    font-size: 3.5rem;
+
+    color: var(--color-gold-dark);
+
+    transition: all 0.3s ease-in-out;
+    cursor: default;
+}
+
+
+.techStack i:hover {
+    transform: translateY(-5px);
+}
