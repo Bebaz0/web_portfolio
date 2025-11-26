@@ -1,7 +1,7 @@
 .techStack-container {
     position: relative;
     width: 300px;
-    height: 150px;
+    height: 300px; /* Increased from 150px to fit the shape */
     margin: 4rem auto;
 }
 
@@ -13,7 +13,7 @@
     height: 100%;
     fill: none;
     stroke: var(--color-gold-dark);
-    stroke-width: 1;
+    stroke-width: 1; /* Kept thin as requested */
     stroke-opacity: 0.4;
     z-index: 0;
 }
@@ -23,18 +23,20 @@
     width: 100%;
     height: 100%;
     z-index: 1;
-    /* Allows clicking through the empty container space */
     pointer-events: none;
 }
 
 .techStack-icons i {
     position: absolute;
-    font-size: 2.5rem; /* Adjusted size */
+    font-size: 2.5rem;
     color: var(--color-gold);
-    pointer-events: auto; /* Re-enable pointer events on the icons themselves */
+    pointer-events: auto;
+
+    /* STRICTLY PRESERVED AS REQUESTED */
     margin-left: -150px;
-    /* Must be identical to the SVG 'd' attribute */
-    offset-path: path("M 25,25 L 275,25 L 275,125 L 25,125 Z");
+
+    /* Updated to match the new symmetrical path */
+    offset-path: path("M 150,35 L 250,93 L 250,208 L 150,265 L 50,208 L 50,93 Z");
 
     width: 50px;
     height: 50px;
@@ -42,23 +44,17 @@
     line-height: 50px;
 
     offset-rotate: 0deg;
-
-    /* Center the icon on the line */
     offset-anchor: 50% 50%;
 
     animation: move-rectangle 12s infinite linear;
 }
 
-
-/* When you hover the container, pause the icons */
 .techStack-container:hover .techStack-icons i {
     animation-play-state: paused;
     cursor: pointer;
 }
 
-/* Staggering */
 .techStack-icons i {
-    /* 12s duration / 6 icons = 2s gap per icon */
     animation-delay: calc(var(--i) * -2s);
 }
 
