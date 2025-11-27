@@ -3,7 +3,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: center; /* Vertically aligns the profile and todo list */
-    gap: 4rem; /* Changed from 10vb for consistent spacing */
+    gap: 4rem;
     flex-wrap: wrap; /* CRITICAL: Allows items to stack on tablet/mobile */
     padding: 0 20px; /* Prevents content from touching edges on mobile */
     max-width: 1200px;
@@ -15,29 +15,44 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    flex: 1; /* Allows profile to take available space */
-    min-width: 300px; /* Prevents it from getting too small */
+    flex: 1;
+    min-width: 300px;
 }
+
+.socials{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 5vb;
+    width: 100%;
+}
+
+.socials a{
+    color: var(--color-text);
+}
+.socials a:hover{
+    color: var(--color-sage);
+    scale: 1.2;
+}
+
 
 h1 {
-    font-size: 3rem; /* Make the name big and bold */
+    font-size: 3rem;
     margin: 0 0 1rem 0;
-    color: var(--color-Pine); /* Main dark text */
-    letter-spacing: -0.02em; /* Tighter tracking for modern look */
+    color: var(--color-Pine);
+    letter-spacing: -0.02em;
 }
 
-/* The 'p' text styling you asked for */
+
 p {
     max-width: 500px;
-    margin: 0 auto; /* Centers the text block */
 
-    font-size: 1.125rem; /* Slightly larger than base 16px */
+    font-size: 1.2rem; /* Slightly larger than base 16px */
     line-height: 1.7; /* Breathing room between lines */
-    color: var(--color-text-muted); /* Softer gray vs strict black */
+    color: var(--color-text-muted);
     font-weight: 400;
 }
 
-/* Adjustments for the To-Do section container */
 .todo {
     flex: 1;
     min-width: 320px;
@@ -45,7 +60,6 @@ p {
     justify-content: center;
 }
 
-/* Mobile Responsive Adjustments */
 @media (max-width: 768px) {
     .heroWrapper {
         gap: 3rem;
