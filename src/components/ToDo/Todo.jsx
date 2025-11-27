@@ -4,7 +4,7 @@ import './Todo.css'
 function Todo() {
     const [tasks, setTasks] = useState([
         { text: "Explore my projects", completed: false },
-        { text: "Visit my social media", completed: true },
+        { text: "Visit my social media", completed: false },
         { text: "Try the to-do list", completed: false },
         { text: "Read the About Me section", completed: false },
         { text: "Switch the website language", completed: false },
