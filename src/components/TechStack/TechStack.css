@@ -2,7 +2,6 @@
     position: relative;
     width: 300px;
     height: 300px;
-    margin: 4rem auto;
     /* Added border-radius and overflow for a cleaner look */
     border-radius: 20px;
     overflow: hidden;

@@ -1,16 +1,64 @@
-
-.heroWrapper{
+.heroWrapper {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    align-items: center; /* Vertically aligns the profile and todo list */
+    gap: 4rem; /* Changed from 10vb for consistent spacing */
+    flex-wrap: wrap; /* CRITICAL: Allows items to stack on tablet/mobile */
+    padding: 0 20px; /* Prevents content from touching edges on mobile */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.profile {
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 10vb;
+    text-align: center;
+    gap: 2vh;
+    flex: 1; /* Allows profile to take available space */
+    min-width: 300px; /* Prevents it from getting too small */
 }
 
-h1{
-    color: var(--color-Pine);
+h1 {
+    font-size: 3rem; /* Make the name big and bold */
+    margin: 0 0 1rem 0;
+    color: var(--color-Pine); /* Main dark text */
+    letter-spacing: -0.02em; /* Tighter tracking for modern look */
 }
 
-p{
+/* The 'p' text styling you asked for */
+p {
     max-width: 500px;
+    margin: 0 auto; /* Centers the text block */
+
+    font-size: 1.125rem; /* Slightly larger than base 16px */
+    line-height: 1.7; /* Breathing room between lines */
+    color: var(--color-text-muted); /* Softer gray vs strict black */
+    font-weight: 400;
+}
+
+/* Adjustments for the To-Do section container */
+.todo {
+    flex: 1;
+    min-width: 320px;
+    display: flex;
+    justify-content: center;
+}
+
+/* Mobile Responsive Adjustments */
+@media (max-width: 768px) {
+    .heroWrapper {
+        gap: 3rem;
+        flex-direction: column-reverse; /* Puts ToDo on top on mobile if you want, or remove to keep standard */
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    p {
+        font-size: 1rem;
+        padding: 0 1rem;
+    }
 }
