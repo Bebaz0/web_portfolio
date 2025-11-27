@@ -2,5 +2,15 @@
 .heroWrapper{
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
+    align-items: center;
+    gap: 10vb;
+}
+
+h1{
+    color: var(--color-Pine);
+}
+
+p{
+    max-width: 500px;
 }

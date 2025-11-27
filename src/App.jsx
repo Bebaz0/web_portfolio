@@ -10,7 +10,8 @@ function App() {
         <div className={'profile'}>
             <img/>
             <h1>Afonso Lima</h1>
-            <p>BiriBiBabidiBoo</p>
+            <p>Full-Stack Developer specialized in modern frontend and user-centric UI. I build things with a clear
+                purpose, no gimmicks. Straightforward, original. Driven by creator mentality and good ideas.</p>
             <TechStack/>
         </div>
         <div className={'todo'}>

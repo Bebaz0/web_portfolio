@@ -1,89 +1,105 @@
-/* Material Design 3 To-Do List - Minimal Style */
+/* Container Wrapper - The Card */
+.tasks-Wrapper {
+    background-color: #f0f4f8; /* Light blue-ish gray similar to image */
+    padding: 2rem;
+    border-radius: 24px;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: left;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
 
-/* Task Container */
+.tasks-Wrapper h1 {
+    color: var(--color-Pine);
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    margin-top: 0;
+    font-weight: 700;
+}
+
+.task-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Individual Task Item */
 .task {
-    position: relative;
     display: flex;
     align-items: center;
     gap: 16px;
-    min-height: 56px;
-    padding: 12px 16px;
-    background-color: white;
-    border-radius: 8px;
-    margin-bottom: 8px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    padding: 16px 20px;
+    /* Creating the cool gray/blue background for unselected items */
+    background-color: rgba(26, 26, 26, 0.05);
+    border-radius: 12px;
     cursor: pointer;
     transition: all 0.2s ease;
+    border: 1px solid transparent;
 }
 
 .task:hover {
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-    transform: translateY(-1px);
+    background-color: rgba(26, 26, 26, 0.08);
 }
 
-/* Checkbox Styles */
-.task input[type="checkbox"] {
-    appearance: none;
-    -webkit-appearance: none;
+/* Active (Checked) State */
+.task.active {
+    background-color: var(--color-sage);
+    color: var(--color-text); /* Dark text on gold, as per image */
+}
+
+/* Custom Checkbox Circle */
+.checkbox-custom {
     width: 20px;
     height: 20px;
-    border: 2px solid var(--color-text-muted);
     border-radius: 50%;
-    cursor: pointer;
+    border: 2px solid var(--color-text-muted);
     position: relative;
     flex-shrink: 0;
     transition: all 0.2s ease;
+}
+
+/* Change checkbox style when active */
+.task.active .checkbox-custom {
+    border-color: var(--color-text);
     background-color: transparent;
-    margin: 0;
 }
 
-.task input[type="checkbox"]:hover {
-    border-color: var(--color-gold);
-}
-
-.task input[type="checkbox"]:checked {
-    background-color: var(--color-gold);
-    border-color: var(--color-gold);
-}
-
-.task input[type="checkbox"]:checked::after {
+/* Inner dot for checked state (optional, or keep simple circle) */
+.task.active .checkbox-custom::after {
     content: '';
     position: absolute;
-    left: 5px;
-    top: 1px;
-    width: 5px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 10px;
     height: 10px;
-    border: solid white;
-    border-width: 0 2px 2px 0;
-    transform: rotate(45deg);
+    background-color: var(--color-text);
+    border-radius: 50%;
 }
 
-/* Label Styles */
+/* Label Typography */
 .task label {
-    flex: 1;
-    font-size: 16px;
-    font-weight: 400;
+    font-size: 1rem;
     color: var(--color-text);
+    font-weight: 500;
     cursor: pointer;
+    /* Ensure text doesn't get selected when clicking the row repeatedly */
     user-select: none;
-    transition: all 0.2s ease;
 }
 
-.task input[type="checkbox"]:checked + label {
-    color: var(--color-text-muted);
+.task.active label {
     text-decoration: line-through;
-    opacity: 0.6;
+    font-weight: 600;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .task {
-        min-height: 48px;
-        padding: 10px 14px;
-        gap: 12px;
+/* Responsive adjustments */
+@media (max-width: 480px) {
+    .tasks-Wrapper {
+        padding: 1.5rem;
     }
 
-    .task label {
-        font-size: 14px;
+    .task {
+        padding: 12px 16px;
     }
 }

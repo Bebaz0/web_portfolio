@@ -1,22 +1,16 @@
 .techStack-container {
     position: relative;
     width: 300px;
-    height: 300px; /* Increased from 150px to fit the shape */
+    height: 300px;
     margin: 4rem auto;
+    /* Added border-radius and overflow for a cleaner look */
+    border-radius: 20px;
+    overflow: hidden;
+    /* Dark base color */
 }
 
-.techStack-track {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    fill: none;
-    stroke: var(--color-gold-dark);
-    stroke-width: 1; /* Kept thin as requested */
-    stroke-opacity: 0.4;
-    z-index: 0;
-}
+
+/* .techStack-track style block removed */
 
 .techStack-icons {
     position: absolute;
@@ -28,25 +22,31 @@
 
 .techStack-icons i {
     position: absolute;
-    font-size: 2.5rem;
-    color: var(--color-gold);
     pointer-events: auto;
 
-    /* STRICTLY PRESERVED AS REQUESTED */
+
+    color: var(--color-Pine); /* White icons */
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 2px solid rgba(255, 255, 255, 0.8); /* Subtle border */
+    border-radius: 50%;
+
+
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    line-height: 56px;
+    font-size: 2rem;
+
+    /*Dont ask it works*/
     margin-left: -150px;
 
-    /* Updated to match the new symmetrical path */
     offset-path: path("M 150,35 L 250,93 L 250,208 L 150,265 L 50,208 L 50,93 Z");
-
-    width: 50px;
-    height: 50px;
-    text-align: center;
-    line-height: 50px;
 
     offset-rotate: 0deg;
     offset-anchor: 50% 50%;
 
-    animation: move-rectangle 12s infinite linear;
+    /* Increased duration for a smoother, slower rotation */
+    animation: move-rectangle 18s infinite linear;
 }
 
 .techStack-container:hover .techStack-icons i {
@@ -55,7 +55,12 @@
 }
 
 .techStack-icons i {
-    animation-delay: calc(var(--i) * -2s);
+    animation-delay: calc(var(--i) * -3s);
+}
+
+.techStack-icons i:hover{
+    color: var(--color-sage);
+    border-color: rgba(255, 255, 255, 1);
 }
 
 @keyframes move-rectangle {
