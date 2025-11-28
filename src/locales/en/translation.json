@@ -1,0 +1,18 @@
+{
+  "profile": {
+    "name": "Afonso Lima",
+    "description": "Full-Stack Developer specialized in modern frontend and user-centric UI. I build things with a clear purpose, no gimmicks, straightforward, original. Driven by a creator mentality and good ideas."
+  },
+  "todo": {
+    "title": "Portfolio ToDo",
+    "tasks": {
+      "tryTodo": "Try the to-do list",
+      "switchLanguage": "Switch the website language",
+      "exploreProjects": "Explore my projects",
+      "visitSocial": "Visit my social media",
+      "readAbout": "Read the About Me section",
+      "sendMessage": "Send me a message",
+      "goTop": "Go back to the top"
+    }
+  }
+}

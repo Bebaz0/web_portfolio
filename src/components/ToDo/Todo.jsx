@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
 import './Todo.css'
+import { useTranslation } from 'react-i18next';
 
 function Todo() {
+    const { t } = useTranslation();
+
     const [tasks, setTasks] = useState([
-        { text: "Explore my projects", completed: false },
-        { text: "Visit my social media", completed: false },
-        { text: "Try the to-do list", completed: false },
-        { text: "Read the About Me section", completed: false },
-        { text: "Switch the website language", completed: false },
-        { text: "Send me a message", completed: false },
-        { text: "Go back to the top", completed: false }
+        { text: "tryTodo", completed: false },
+        { text: "switchLanguage", completed: false },
+        { text: "exploreProjects", completed: false },
+        { text: "visitSocial", completed: false },
+        { text: "readAbout", completed: false },
+        { text: "sendMessage", completed: false },
+        { text: "goTop", completed: false }
     ]);
 
     const toggleTask = (index) => {
@@ -24,7 +27,7 @@ function Todo() {
 
     return (
         <div className="tasks-Wrapper">
-            <h1>Portfolio ToDo</h1>
+            <h1>{t('todo.title')}</h1>
             <div className="task-list">
                 {tasks.map((task, index) => (
                     <div
@@ -33,7 +36,7 @@ function Todo() {
                         onClick={() => toggleTask(index)}
                     >
                         <div className="checkbox-custom"></div>
-                        <label>{task.text}</label>
+                        <label>{t(`todo.tasks.${task.text}`)}</label>
                     </div>
                 ))}
             </div>

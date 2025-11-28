@@ -1,0 +1,19 @@
+
+{
+  "profile": {
+    "name": "Afonso Lima",
+    "description": "Desenvolvedor Full-Stack especializado em frontend moderno e UI centrada no utilizador. Construo com um propósito claro, direto e original. Impulsionado por uma mentalidade criadora e boas ideias."
+  },
+  "todo": {
+    "title": "Tarefas do Portfólio",
+    "tasks": {
+      "tryTodo": "Experimentar a lista de tarefas",
+      "switchLanguage": "Mudar o idioma do website",
+      "exploreProjects": "Explorar os meus projetos",
+      "visitSocial": "Visitar as minhas redes sociais",
+      "readAbout": "Ler a secção Sobre Mim",
+      "sendMessage": "Enviar-me uma mensagem",
+      "goTop": "Voltar ao topo"
+    }
+  }
+}
