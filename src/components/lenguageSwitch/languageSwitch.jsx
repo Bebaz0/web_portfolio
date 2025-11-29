@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import "./lenguageSwitch.css";
+import "./languageSwitch.css";
 
 export default function LanguageToggle() {
     const { i18n } = useTranslation();

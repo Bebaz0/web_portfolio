@@ -4,8 +4,8 @@
     right: 2rem;
     z-index: 1000;
 
-    background: var(--color-sage);
-    color: white;
+    background: white;
+    color: var(--color-text);
     border: none;
 
     font-family: var(--font-main);
@@ -24,7 +24,7 @@
 }
 
 .language-toggle:hover {
-    background: var(--color-Pine);
+    background: var(--color-sage);
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(45, 122, 112, 0.3);
 }

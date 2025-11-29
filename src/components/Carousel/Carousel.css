@@ -1,0 +1,61 @@
+.slider-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 40px;
+}
+
+.projects-title {
+    font-size: 2.5rem;
+    color: var(--color-Pine);
+    margin-bottom: 3rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+}
+
+/* Add spacing between slides */
+.slick-slide > div {
+    padding: 0 15px;
+}
+
+/* Slick carousel customization to match theme */
+.slick-dots {
+    bottom: -50px;
+}
+
+.slick-dots li button:before {
+    color: var(--color-sage);
+    font-size: 12px;
+}
+
+.slick-dots li.slick-active button:before {
+    color: var(--color-Pine);
+}
+
+.slick-prev:before,
+.slick-next:before {
+    color: var(--color-sage);
+}
+
+.slick-prev:hover:before,
+.slick-next:hover:before {
+    color: var(--color-Pine);
+}
+
+@media (max-width: 768px) {
+    .projects-title {
+        font-size: 2rem;
+    }
+
+    .slider-container {
+        padding: 1rem 20px;
+    }
+
+    .slick-slide > div {
+        padding: 0 10px;
+    }
+
+    .slick-dots {
+        bottom: -40px;
+    }
+}

@@ -2,7 +2,8 @@ import './App.css'
 import TechStack from "./components/TechStack/TechStack.jsx";
 import Todo from "./components/ToDo/Todo.jsx";
 import { useTranslation } from 'react-i18next';
-import LanguageToggle from "./components/lenguageSwitch/lenguageSwitch.jsx";
+import LanguageToggle from "./components/lenguageSwitch/languageSwitch.jsx";
+import Carousel from "./components/Carousel/Carousel.jsx";
 
 function App() {
     const { t } = useTranslation();
@@ -10,7 +11,7 @@ function App() {
     return (
         <>
         <LanguageToggle />
-        <div className={'heroWrapper'}>
+        <section className={'heroWrapper'}>
             <div className={'profile'}>
                 <h1>{t('profile.name')}</h1>
                 <div className={'socials'}>
@@ -43,7 +44,10 @@ function App() {
                 <Todo/>
             </div>
             <span></span>
-        </div>
+        </section>
+        <section className={"projectsWrapper"}>
+            <Carousel/>
+        </section>
         </>
     )
 }
