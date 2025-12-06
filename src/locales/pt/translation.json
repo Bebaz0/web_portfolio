@@ -15,5 +15,12 @@
       "sendMessage": "Enviar-me uma mensagem",
       "goTop": "Voltar ao topo"
     }
+  },
+  "projects": {
+    "title": "Os meus Projetos"
+  },
+  "about": {
+    "title": "Sobre Mim",
+    "description": "Afonso Lima, estudante do segundo ano de Engenharia Informática na Faculdade de Engenharia da Universidade do Porto. Trabalho com foco em front-end e na criação de soluções funcionais e creativas. O meu tech stack principal é React, Node.js, CSS3, PostgreSQL e C++. Além disso, tenho bom domínio de C, Java, Python e SQLite, e experiência sólida com Git, UML e UI Design. Fora do mundo digital, sou campeão nacional de boxe, algo que faz parte do meu percurso e identidade. Gosto de manter as coisas objetivas: problemas claros, soluções diretas e resultados consistentes"
   }
 }

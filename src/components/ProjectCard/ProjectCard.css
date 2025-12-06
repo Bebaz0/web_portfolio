@@ -6,7 +6,7 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
     border: 2px solid transparent;
-    height: 400px;
+    max-height: 400px;
     display: flex;
     flex-direction: column;
 }
@@ -18,6 +18,7 @@
 }
 
 .card-wrapper h2 {
+    text-align: left;
     font-size: 1.5rem;
     color: var(--color-Pine);
     margin: 0 0 1rem 0;
@@ -48,23 +49,6 @@
     margin: 0;
     text-align: left;
     max-width: 100%;
-}
-
-.project-info a {
-    display: inline-block;
-    padding: 0.6rem 1.5rem;
-    background-color: var(--color-sage);
-    color: white;
-    text-decoration: none;
-    border-radius: 6px;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    align-self: flex-start;
-}
-
-.project-info a:hover {
-    background-color: var(--color-Pine);
-    transform: translateX(5px);
 }
 
 /* Mobile responsiveness */

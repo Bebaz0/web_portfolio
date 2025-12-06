@@ -2,16 +2,10 @@
  * Twitter: @kootoopas
  */
 
-/* CHANGED: Imported 'Outfit' instead of 'Fraunces' */
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
-
 :root {
     /* This ensures everything is over the vinagrete for those wondering*/
     position: relative;
     z-index: 1;
-
-    /* CHANGED: Updated font variable */
-    --font-main: 'Outfit', sans-serif;
 
     --color-bg: #F4F4F4; /* Soft gray/white */
     --color-text: #1a1a1a;
@@ -28,6 +22,15 @@
     --bg-width: 50px;
     --bg-height: 50px;
     --background-position: var(--bg-width) var(--bg-height);
+}
+
+@font-face {
+    font-family: public-pixel;
+    src: url("/fonts/public-pixel");
+}
+@font-face {
+    font-family: chill;
+    src: url("/fonts/chill.woff");
 }
 
 /* Animations */
@@ -62,7 +65,8 @@ body {
     color: var(--color-text);
     text-align: center;
 
-    font-family: var(--font-main);
+    font-family: "chill", sans-serif;
+    font-size: 18px;
 
     background-color: var(--color-bg);
 

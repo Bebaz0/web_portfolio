@@ -4,6 +4,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./Carousel.css";
 import ProjectCard from "../ProjectCard/ProjectCard";
+import {useTranslation} from "react-i18next";
 
 function PauseOnHover() {
     const settings = {
@@ -59,9 +60,11 @@ function PauseOnHover() {
         }
     ];
 
+    const { t } = useTranslation();
+
     return (
         <div className="slider-container">
-            <h2 className="projects-title">My Projects</h2>
+            <h2 className="projects-title">{t('projects.title')}</h2>
             <Slider {...settings}>
                 {projects.map((project, index) => (
                     <ProjectCard

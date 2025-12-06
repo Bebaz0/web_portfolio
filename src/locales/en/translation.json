@@ -14,5 +14,12 @@
       "sendMessage": "Send me a message",
       "goTop": "Go back to the top"
     }
+  },
+  "projects": {
+    "title": "My Projects"
+  },
+  "about": {
+    "title": "About Me",
+    "description": "I'm Afonso Lima, a second-year Computer Engineering student at the Faculty of Engineering of the University of Porto. I work with a focus on front-end development and on building functional, streamlined, and creative solutions.\n\nMy main tech stack includes React, Node.js, CSS3, PostgreSQL, and C++. I also have strong knowledge of C, Java, Python, and SQLite, along with solid experience in Git, UML, and UI Design.Outside the digital world, I'm a national boxing champion, an important part of my background and identity.I keep things straightforward: clear problems, direct solutions, and consistent results."
   }
 }

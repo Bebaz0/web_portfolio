@@ -4,8 +4,8 @@
     justify-content: center;
     align-items: center; /* Vertically aligns the profile and todo list */
     gap: 4rem;
-    flex-wrap: wrap; /* CRITICAL: Allows items to stack on tablet/mobile */
-    padding: 0 20px; /* Prevents content from touching edges on mobile */
+    flex-wrap: wrap;
+    padding: 0 20px;
     max-width: 1200px;
     margin: 0 auto;
 }
