@@ -1,0 +1,24 @@
+.aboutContent{
+    display: flex;
+    flex-direction: column;
+    margin: 30px;
+}
+
+.aboutContent h2 {
+    color: var(--color-Pine);
+    font-weight: 600;
+    font-size: 2.5rem;
+}
+
+.aboutContent p {
+    line-height: 1.6;
+    color: var(--color-text-muted);
+    text-align: left;
+    width: 70vb;
+}
+
+@media (max-width: 768px) {
+    .aboutContent h2 {
+        font-size: 1.3rem;
+    }
+}

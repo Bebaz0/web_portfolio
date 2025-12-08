@@ -33,18 +33,20 @@ function PauseOnHover() {
         ]
     };
 
+    const {t} = useTranslation()
+
     const projects = [
         {
-            title: "E-Commerce Platform",
-            imgsrc: "",
-            description: "Full-stack e-commerce solution with React, Node.js, and MongoDB. Features user authentication and secure payments.",
-            link: "https://github.com/yourusername/project1"
+            title: t("projects.list.PortoBox.title"),
+            imgsrc: "/projects/portobox.png",
+            description: t("projects.list.PortoBox.description"),
+            link: "https://github.com/Bebaz0/client-work-showcase/tree/main/PortoBoxCup"
         },
         {
-            title: "Task Management App",
+            title: t("projects.list.ReservationApp.title"),
             imgsrc: "",
-            description: "Collaborative task tool built with React and Firebase. Real-time updates and drag-and-drop interface.",
-            link: "https://github.com/yourusername/project2"
+            description: t("projects.list.ReservationApp.description"),
+            link: "https://github.com/Bebaz0/client-work-showcase/tree/main/RestaurantReservationsApp"
         },
         {
             title: "Weather Dashboard",
@@ -60,7 +62,6 @@ function PauseOnHover() {
         }
     ];
 
-    const { t } = useTranslation();
 
     return (
         <div className="slider-container">

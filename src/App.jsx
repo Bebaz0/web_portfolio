@@ -4,6 +4,7 @@ import Todo from "./components/ToDo/Todo.jsx";
 import { useTranslation } from 'react-i18next';
 import LanguageToggle from "./components/lenguageSwitch/languageSwitch.jsx";
 import Carousel from "./components/Carousel/Carousel.jsx";
+import AboutMe from "./components/AboutMe/AboutMe.jsx";
 
 function App() {
     const { t } = useTranslation();
@@ -47,6 +48,9 @@ function App() {
         </section>
         <section className={"projectsWrapper"}>
             <Carousel/>
+        </section>
+        <section className={"aboutWrapper"}>
+            <AboutMe/>
         </section>
         </>
     )

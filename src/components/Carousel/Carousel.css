@@ -1,8 +1,7 @@
 .slider-container {
     width: 100%;
     max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem 40px;
+    padding: 1.5rem 40px;
 }
 
 .projects-title {

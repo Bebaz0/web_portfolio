@@ -17,7 +17,17 @@
     }
   },
   "projects": {
-    "title": "Os meus Projetos"
+    "title": "Os meus Projetos",
+    "list":{
+      "PortoBox": {
+        "title": "Porto Box Cup",
+        "description": "Site do Maior Evento de Boxe Anual da Europa com informações, estatisticas, páginas para equipas e sistema de registos"
+      },
+      "ReservationApp": {
+        "title": "App de Gestão de Reservas",
+        "description": "Este projeto é uma Aplicação de Gestão de Reservas, criada para ajudar empresas a gerir marcações e horários de forma eficiente. Permite aos utilizadores criar, cancelar e visualizar reservas através de uma interface limpa e intuitiva."
+      }
+    }
   },
   "about": {
     "title": "Sobre Mim",

@@ -9,7 +9,7 @@ function ProjectCard({title,imgsrc,description,link}) {
 
     return (
         <div onClick={handleClick} className={'card-wrapper'}>
-            <img alt={"project-image"}/>
+            <img alt={"project-image"} src={imgsrc}/>
             <h2>{title}</h2>
             <div className={"project-info"}>
                 <p>
