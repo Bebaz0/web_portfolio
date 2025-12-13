@@ -23,8 +23,16 @@
         "description": "An annual boxing event website to manage registrations, event info, and statistics."
       },
       "ReservationApp": {
-        "title": "Reservation Management App",
-        "description": "This project is a Reservation Management Application designed to help businesses efficiently manage bookings and schedules, it allows users to create, cancel, and view reservations with a clean and intuitive interface."
+        "title": "Reservation Management",
+        "description": "This reservation management application helps businesses manage bookings and schedules efficiently, allowing users to create, cancel, and view reservations through a clean and intuitive interface."
+      },
+      "Photography": {
+        "title": "Photography website",
+        "description": "Maria Bragança Fotografia is a professional photography website showcasing the work of Maria Bragança, specializing in newborn, family, and maternity sessions, with an elegant design and easy client contact."
+      },
+      "Portfolio": {
+        "title": "Portfolio Website",
+        "description": "This website, make your own conclusion... Also you can check the code"
       }
     }
   },

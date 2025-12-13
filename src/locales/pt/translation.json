@@ -24,8 +24,16 @@
         "description": "Site do Maior Evento de Boxe Anual da Europa com informações, estatisticas, páginas para equipas e sistema de registos"
       },
       "ReservationApp": {
-        "title": "App de Gestão de Reservas",
-        "description": "Este projeto é uma Aplicação de Gestão de Reservas, criada para ajudar empresas a gerir marcações e horários de forma eficiente. Permite aos utilizadores criar, cancelar e visualizar reservas através de uma interface limpa e intuitiva."
+        "title": "Gestão de Reservas",
+        "description": "Esta aplicação de gestão de reservas ajuda empresas a gerir marcações e horários de forma eficiente, permitindo criar, cancelar e consultar reservas através de uma interface simples e intuitiva."
+      },
+      "Photography": {
+        "title": "Artista fotográfica",
+        "description": "O site Maria Bragança Fotografia apresenta o trabalho da fotógrafa Maria Bragança, especializada em sessões de recém-nascidos, família e maternidade, com um design elegante e contacto fácil para clientes."
+      },
+      "Portfolio": {
+        "title": "Site Portfolio",
+        "description": "Este website... tira as conclusões. Também podes consultar o código."
       }
     }
   },

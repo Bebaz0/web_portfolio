@@ -44,20 +44,20 @@ function PauseOnHover() {
         },
         {
             title: t("projects.list.ReservationApp.title"),
-            imgsrc: "",
+            imgsrc: "/projects/restaurantapp.png",
             description: t("projects.list.ReservationApp.description"),
             link: "https://github.com/Bebaz0/client-work-showcase/tree/main/RestaurantReservationsApp"
         },
         {
-            title: "Weather Dashboard",
-            imgsrc: "",
-            description: "Interactive weather app using OpenWeather API. Displays current conditions and 7-day forecasts.",
-            link: "https://github.com/yourusername/project3"
+            title: t("projects.list.Photography.title"),
+            imgsrc: "/projects/photography.png",
+            description: t("projects.list.Photography.description"),
+            link: "https://github.com/Bebaz0/client-work-showcase/tree/main/MariaBragancaFotografia"
         },
         {
-            title: "Portfolio Website",
-            imgsrc: "",
-            description: "Modern portfolio showcasing projects and skills. Built with React featuring smooth animations.",
+            title: t("projects.list.Portfolio.title"),
+            imgsrc: "/projects/portfolio.png",
+            description: t("projects.list.Portfolio.description"),
             link: "https://github.com/yourusername/project4"
         }
     ];
