@@ -56,6 +56,7 @@ npm run dev
  ├── package-lock.json
  ├── vite.config.js 
  ├── .gitignore
+ ├── index.html
  └──src/
      ├── components/
      │   ├── AboutMe/
