@@ -58,7 +58,7 @@ function PauseOnHover() {
             title: t("projects.list.Portfolio.title"),
             imgsrc: "/projects/portfolio.png",
             description: t("projects.list.Portfolio.description"),
-            link: "https://github.com/yourusername/project4"
+            link: "https://github.com/Bebaz0/web_portfolio"
         }
     ];
 
