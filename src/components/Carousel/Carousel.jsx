@@ -59,6 +59,18 @@ function PauseOnHover() {
             imgsrc: "/projects/portfolio.png",
             description: t("projects.list.Portfolio.description"),
             link: "https://github.com/Bebaz0/web_portfolio"
+        },
+        {
+            title: t("projects.list.Scrim.title"),
+            imgsrc: "",
+            description: t("projects.list.Scrim.description"),
+            link: "https://github.com/Bebaz0/Scrim-Image-Editor"
+        },
+        {
+            title: t("projects.list.Country.title"),
+            imgsrc: "/projects/country.png",
+            description: t("projects.list.Country.description"),
+            link: "https://github.com/Bebaz0/country-info-with-themes"
         }
     ];
 

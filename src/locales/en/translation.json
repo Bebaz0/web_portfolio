@@ -17,6 +17,7 @@
   },
   "projects": {
     "title": "My Projects",
+    "noImg": "No image for this Project",
     "list":{
       "PortoBox": {
         "title": "Porto Box Cup",
@@ -33,6 +34,14 @@
       "Portfolio": {
         "title": "Portfolio Website",
         "description": "This website, make your own conclusion... Also you can check the code"
+      },
+      "Scrim": {
+        "title": "Scrim Image Editor",
+        "description": "A lightweight, command-driven image editor built in C++, capable of interpreting text-based instruction files to perform image manipulations like creating blank images, adding images, applying effects, and saving the results."
+      },
+      "Country": {
+        "title": "REST Countries API",
+        "description": "A country explorer app using an API. Users can view all countries, search, filter by region, see details on a separate page, navigate to bordering countries, and toggle light/dark mode."
       }
     }
   },

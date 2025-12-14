@@ -18,6 +18,7 @@
   },
   "projects": {
     "title": "Os meus Projetos",
+    "noImg": "Projeto sem imagem",
     "list":{
       "PortoBox": {
         "title": "Porto Box Cup",
@@ -34,6 +35,14 @@
       "Portfolio": {
         "title": "Site Portfolio",
         "description": "Este website... tira as conclusões. Também podes consultar o código."
+      },
+      "Scrim": {
+        "title": "Editor de imagem Scrim",
+        "description": "Um editor de imagens leve, baseado em comandos, desenvolvido em C++, capaz de interpretar ficheiros de instruções em texto para realizar manipulações de imagem, como criar imagens em branco, adicionar imagens, aplicar efeitos e guardar os resultados."
+      },
+      "Country": {
+        "title": "Explorador de Países",
+        "description": "Um site de exploração de países com API. Permite ver todos os países, pesquisar, filtrar por região, ver detalhes, navegar para países vizinhos e alternar entre modo claro/escuro."
       }
     }
   },
