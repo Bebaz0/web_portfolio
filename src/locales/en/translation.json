@@ -16,7 +16,7 @@
     }
   },
   "projects": {
-    "title": "My Projects",
+    "title": "My Work",
     "noImg": "No image for this Project",
     "list":{
       "PortoBox": {
@@ -42,6 +42,10 @@
       "Country": {
         "title": "REST Countries API",
         "description": "A country explorer app using an API. Users can view all countries, search, filter by region, see details on a separate page, navigate to bordering countries, and toggle light/dark mode."
+      },
+      "Dean":{
+        "title": "Dean Rök",
+        "description": "A landing page website for the artist Dean Rök, featuring a modern design with smooth animations. It showcases his albums, music, and social media, and includes Brevo integration to collect emails and share updates with fans."
       }
     }
   },

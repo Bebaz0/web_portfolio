@@ -17,7 +17,7 @@
     }
   },
   "projects": {
-    "title": "Os meus Projetos",
+    "title": "O meu trabalho",
     "noImg": "Projeto sem imagem",
     "list":{
       "PortoBox": {
@@ -43,6 +43,10 @@
       "Country": {
         "title": "Explorador de Países",
         "description": "Um site de exploração de países com API. Permite ver todos os países, pesquisar, filtrar por região, ver detalhes, navegar para países vizinhos e alternar entre modo claro/escuro."
+      },
+      "Dean":{
+        "title": "Dean Rök",
+        "description": "Um site de landing page para o artista Dean Rök, com um design moderno e animações fluidas. Apresenta os seus álbuns, músicas e redes sociais, e integra a Brevo para recolha de emails e envio de novidades aos fãs. Simples, impactante e focado em conversão."
       }
     }
   },

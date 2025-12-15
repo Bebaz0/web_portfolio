@@ -12,7 +12,7 @@ function ProjectCard({title,imgsrc,description,link}) {
 
     return (
         <div onClick={handleClick} className={'card-wrapper'}>
-            {imgsrc === ""? <img alt={t("projects.noImg")}/>
+            {imgsrc === ""? <span></span>
                 : <img alt={"project-image"} src={imgsrc}/>
             }
             <h2>{title}</h2>

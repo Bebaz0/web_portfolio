@@ -49,6 +49,12 @@ function PauseOnHover() {
             link: "https://github.com/Bebaz0/client-work-showcase/tree/main/RestaurantReservationsApp"
         },
         {
+            title: t("projects.list.Scrim.title"),
+            imgsrc: "",
+            description: t("projects.list.Scrim.description"),
+            link: "https://github.com/Bebaz0/Scrim-Image-Editor"
+        },
+        {
             title: t("projects.list.Photography.title"),
             imgsrc: "/projects/photography.png",
             description: t("projects.list.Photography.description"),
@@ -61,16 +67,16 @@ function PauseOnHover() {
             link: "https://github.com/Bebaz0/web_portfolio"
         },
         {
-            title: t("projects.list.Scrim.title"),
-            imgsrc: "",
-            description: t("projects.list.Scrim.description"),
-            link: "https://github.com/Bebaz0/Scrim-Image-Editor"
-        },
-        {
             title: t("projects.list.Country.title"),
             imgsrc: "/projects/country.png",
             description: t("projects.list.Country.description"),
             link: "https://github.com/Bebaz0/country-info-with-themes"
+        },
+        {
+            title: t("projects.list.Dean.title"),
+            imgsrc: "/projects/dean.png",
+            description: t("projects.list.Dean.description"),
+            link: "https://deanrok.com/"
         }
     ];
 
