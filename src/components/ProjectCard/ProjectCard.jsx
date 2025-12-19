@@ -17,7 +17,7 @@ function ProjectCard({title,imgsrc,description,link}) {
             }
             <h2>{title}</h2>
             <div className={"project-info"}>
-                <p>
+                <p className="project-description">
                     {description}
                 </p>
             </div>

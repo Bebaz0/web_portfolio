@@ -18,34 +18,34 @@
   "projects": {
     "title": "My Work",
     "noImg": "No image for this Project",
-    "list":{
+    "list": {
       "PortoBox": {
         "title": "Porto Box Cup",
         "description": "An annual boxing event website to manage registrations, event info, and statistics."
       },
       "ReservationApp": {
         "title": "Reservation Management",
-        "description": "This reservation management application helps businesses manage bookings and schedules efficiently, allowing users to create, cancel, and view reservations through a clean and intuitive interface."
+        "description": "Reservation management for businesses: create, cancel, and view reservations; manage bookings and schedules."
       },
       "Photography": {
         "title": "Photography website",
-        "description": "Maria Bragança Fotografia is a professional photography website showcasing the work of Maria Bragança, specializing in newborn, family, and maternity sessions, with an elegant design and easy client contact."
+        "description": "Professional photography website showcasing the work of Maria Bragança; specializing in newborn, family, and maternity sessions."
       },
       "Portfolio": {
         "title": "Portfolio Website",
-        "description": "This website, make your own conclusion... Also you can check the code"
+        "description": "This website; make your own conclusion. Also you can check the code."
       },
       "Scrim": {
         "title": "Scrim Image Editor",
-        "description": "A lightweight, command-driven image editor built in C++, capable of interpreting text-based instruction files to perform image manipulations like creating blank images, adding images, applying effects, and saving the results."
+        "description": "Lightweight, command-driven image editor in C++; interprets text-based instruction files for image manipulations."
       },
       "Country": {
         "title": "REST Countries API",
-        "description": "A country explorer app using an API. Users can view all countries, search, filter by region, see details on a separate page, navigate to bordering countries, and toggle light/dark mode."
+        "description": "Country explorer app using an API: view all countries, search, filter by region, see details on a separate page, navigate to bordering countries."
       },
-      "Dean":{
+      "Dean": {
         "title": "Dean Rök",
-        "description": "A landing page website for the artist Dean Rök, featuring a modern design with smooth animations. It showcases his albums, music, and social media, and includes Brevo integration to collect emails and share updates with fans."
+        "description": "Landing page for the artist Dean Rök with modern design and smooth animations; showcases albums, music, and social media."
       }
     }
   },

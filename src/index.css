@@ -22,6 +22,11 @@
     --bg-width: 50px;
     --bg-height: 50px;
     --background-position: var(--bg-width) var(--bg-height);
+
+    /* Layout variables */
+    --container-max: 1200px;
+    --page-gutter: clamp(16px, 4vw, 32px);
+    --section-gap: clamp(48px, 10vh, 96px);
 }
 
 @font-face {
@@ -61,7 +66,9 @@
 }
 
 body {
-    margin-top: 13.5rem;
+    /* removed large top margin that created unused space */
+    /* margin-top: 13.5rem; */
+
     color: var(--color-text);
     text-align: center;
 

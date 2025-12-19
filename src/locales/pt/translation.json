@@ -1,8 +1,7 @@
-
 {
   "profile": {
     "name": "Afonso Lima",
-    "description": "Desenvolvedor Full-Stack especializado em frontend moderno. Construo com um propósito claro, direto e original. Impulsionado por uma mentalidade criadora e boas ideias."
+    "description": "Desenvolvedor Full-Stack especializado em frontend moderno. Construo com um propósito claro, direto e original. Impulsionado por uma mentalidade criativa e boas ideias."
   },
   "todo": {
     "title": "Tarefas do Portfólio",
@@ -19,18 +18,18 @@
   "projects": {
     "title": "O meu trabalho",
     "noImg": "Projeto sem imagem",
-    "list":{
+    "list": {
       "PortoBox": {
         "title": "Porto Box Cup",
-        "description": "Site do Maior Evento de Boxe Anual da Europa com informações, estatisticas, páginas para equipas e sistema de registos"
+        "description": "Site do Maior Evento de Boxe Anual da Europa com informações, estatisticas, páginas para equipas e sistema de registos."
       },
       "ReservationApp": {
         "title": "Gestão de Reservas",
-        "description": "Esta aplicação de gestão de reservas ajuda empresas a gerir marcações e horários de forma eficiente, permitindo criar, cancelar e consultar reservas através de uma interface simples e intuitiva."
+        "description": "Gestão de reservas para empresas: criar, cancelar e consultar reservas; gerir marcações e horários."
       },
       "Photography": {
         "title": "Artista fotográfica",
-        "description": "O site Maria Bragança Fotografia apresenta o trabalho da fotógrafa Maria Bragança, especializada em sessões de recém-nascidos, família e maternidade, com um design elegante e contacto fácil para clientes."
+        "description": "Site Maria Bragança Fotografia apresentando o trabalho de Maria Bragança; especializada em recém-nascidos, família e maternidade."
       },
       "Portfolio": {
         "title": "Site Portfolio",
@@ -38,15 +37,15 @@
       },
       "Scrim": {
         "title": "Editor de imagem Scrim",
-        "description": "Um editor de imagens leve, baseado em comandos, desenvolvido em C++, capaz de interpretar ficheiros de instruções em texto para realizar manipulações de imagem, como criar imagens em branco, adicionar imagens, aplicar efeitos e guardar os resultados."
+        "description": "Editor de imagens leve, baseado em comandos, em C++; interpreta ficheiros de instruções em texto para manipulações de imagem."
       },
       "Country": {
         "title": "Explorador de Países",
-        "description": "Um site de exploração de países com API. Permite ver todos os países, pesquisar, filtrar por região, ver detalhes, navegar para países vizinhos e alternar entre modo claro/escuro."
+        "description": "Exploração de países com API: ver países, pesquisar, filtrar por região, ver detalhes e navegar para países vizinhos."
       },
-      "Dean":{
+      "Dean": {
         "title": "Dean Rök",
-        "description": "Um site de landing page para o artista Dean Rök, com um design moderno e animações fluidas. Apresenta os seus álbuns, músicas e redes sociais, e integra a Brevo para recolha de emails e envio de novidades aos fãs. Simples, impactante e focado em conversão."
+        "description": "Landing page para o artista Dean Rök, com design moderno e animações fluidas; apresenta álbuns, músicas e redes sociais."
       }
     }
   },

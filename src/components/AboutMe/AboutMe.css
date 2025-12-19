@@ -14,7 +14,15 @@
     line-height: 1.6;
     color: var(--color-text-muted);
     text-align: left;
-    width: 70vb;
+    max-width: 68ch;
+    margin: 0;
+
+    /* Explicitly prevent any clamp/overflow from leaking here */
+    display: block;
+    -webkit-line-clamp: unset;
+    -webkit-box-orient: unset;
+    overflow: visible;
+    max-height: none;
 }
 
 @media (max-width: 768px) {
