@@ -2,30 +2,32 @@
     width: 100%;
     max-width: 1000px;              /* was 1200px */
     padding: 1.25rem 24px;          /* was 1.5rem 40px */
-    /* More breathing room at the bottom so dots/arrows never feel cramped */
     padding-bottom: clamp(2rem, 6vh, 5rem);
+    display: flex;
+    flex-direction: column;
+    gap: 4vh;
+    justify-content: center;
 }
 
 .projects-title {
-    font-size: 2.5rem;              /* keep font size */
+    font-size: 2.5rem;
     color: var(--color-Pine);
     margin-bottom: 3rem;
     font-weight: 600;
     letter-spacing: -0.02em;
 }
 
-/* Increase spacing between slides a touch */
 .slick-slide > div {
     padding: 0 20px;                /* was 15px */
 }
 
 .slick-dots {
-    bottom: -30px;                      /* keep dots inside the container */
+    bottom: -30px;
 }
 
 .slick-dots li button:before {
     color: var(--color-sage);
-    font-size: 12px;                /* keep dot size */
+    font-size: 12px;
 }
 
 .slick-dots li.slick-active button:before {
@@ -41,23 +43,25 @@
 .slick-next:hover:before {
     color: var(--color-Pine);
 }
-
+/* Mobile tweaks */
 @media (max-width: 768px) {
     .projects-title {
-        font-size: 2rem;            /* keep existing mobile font size */
+        font-size: 2rem;
     }
 
     .slider-container {
-        padding: 1rem 16px;         /* was 1rem 20px */
+        padding: 1rem 16px;
         padding-bottom: clamp(1.5rem, 8vh, 4rem);
-        max-width: 100%;            /* let it breathe edge-to-edge on mobile */
+        max-width: 100%;
     }
 
     .slick-slide > div {
-        padding: 0 12px;            /* was 10px */
+        padding: 0 12px;
     }
 
     .slick-dots {
         bottom: 0;
     }
+
+
 }

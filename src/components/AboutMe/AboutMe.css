@@ -14,10 +14,8 @@
     line-height: 1.6;
     color: var(--color-text-muted);
     text-align: left;
-    max-width: 68ch;
-    margin: 0;
-
-    /* Explicitly prevent any clamp/overflow from leaking here */
+    max-width: 40ch;   /* antes 68ch: linhas mais estreitas */
+    margin: 0 auto;    /* centra o bloco de texto */
     display: block;
     -webkit-line-clamp: unset;
     -webkit-box-orient: unset;

@@ -78,17 +78,18 @@ p {
     align-items: center;
 }
 
-/* About retains comfortable spacing without forced full height */
 .aboutWrapper{
     width: min(var(--container-max), 100% - 2rem);
     margin-inline: auto;
 
-    margin-block-start: clamp(48px, 10vh, 96px);
-    padding-block: clamp(48px, 3vh, 96px);
+    min-height: 100vh; /* garante a altura da viewport */
+
 
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;  /* conteúdo no topo */
     align-items: center;
+    gap: clamp(20px, 4vh, 40px);
 }
 
 @media (max-width: 768px) {

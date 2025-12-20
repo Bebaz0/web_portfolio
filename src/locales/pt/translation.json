@@ -18,6 +18,10 @@
   "projects": {
     "title": "O meu trabalho",
     "noImg": "Projeto sem imagem",
+    "roulette":{
+      "button": "Sorteia um Projeto",
+      "spinning": "Loading"
+    },
     "list": {
       "PortoBox": {
         "title": "Porto Box Cup",
