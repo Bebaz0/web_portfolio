@@ -53,7 +53,7 @@
     max-width: 100%;
 
     display: -webkit-box;
-    -webkit-line-clamp: 5;       /* altera para 4 se preferires mais compacto */
+    -webkit-line-clamp: 6;       /* altera para 4 se preferires mais compacto */
     -webkit-box-orient: vertical;
     overflow: hidden;
 

@@ -1,6 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
-import "./RouletteButton.css"
+import "./RouletteButton.css";
+import useSound from 'use-sound';
+import select from "/sounds/select.mp3"
+
 
 function RouletteButton({ sliderRef, projectCount }) {
     const { t } = useTranslation();
@@ -11,14 +14,16 @@ function RouletteButton({ sliderRef, projectCount }) {
     const rouletteLabel = t("projects.roulette.button", { defaultValue: "Pick a random project" });
     const spinningLabel = t("projects.roulette.spinning", { defaultValue: "Spinning..." });
 
+    const [playSelect] = useSound(select);
+
     const spinRoulette = () => {
         if (isSpinning || !sliderRef?.current || !projectCount) return;
 
         const total = projectCount;
-        const extraLoops = 2; // quantas voltas rápidas antes de parar
+        const extraLoops = 1; // how many turns
         const target = Math.floor(Math.random() * total);
         const totalSteps = extraLoops * total + target;
-        const intervalMs = 300;
+        const intervalMs = 1000;
 
         setIsSpinning(true);
         remainingStepsRef.current = totalSteps;
@@ -26,6 +31,7 @@ function RouletteButton({ sliderRef, projectCount }) {
         timerRef.current = setInterval(() => {
             if (remainingStepsRef.current > 0) {
                 sliderRef.current?.slickNext();
+                playSelect();
                 remainingStepsRef.current -= 1;
             } else {
                 clearInterval(timerRef.current);

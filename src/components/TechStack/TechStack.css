@@ -50,7 +50,6 @@
 }
 
 .techStack-container:hover .techStack-icons i {
-    animation-play-state: paused;
     cursor: pointer;
 }
 
