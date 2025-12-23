@@ -58,7 +58,7 @@
     }
 
     /* Opcional: Esconder setas no mobile se preferir só swipe */
-    /* .slick-prev, .slick-next { display: none !important; } */
+    .slick-prev, .slick-next { display: none !important; }
 
     .slick-dots {
         bottom: -20px;

@@ -107,8 +107,6 @@ body {
 
     /* Prevent horizontal scroll on mobile */
     overflow-x:  hidden;
-    margin:  0;
-    padding: 0;
 
     /* Smooth scrolling */
     scroll-behavior: smooth;

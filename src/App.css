@@ -1,18 +1,10 @@
 .heroWrapper {
-    position: relative;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 4rem;
-    flex-wrap: wrap;
-    /* Alterado de height fixo para min-height com dvh para suportar mobile browsers */
     min-height: 100dvh;
-    width: min(var(--container-max), 100% - 2rem);
-    padding-inline: 0.5rem;
-    margin: 0 auto;
-    padding-top: clamp(24px, 6vh, 96px);
-    padding-bottom: clamp(24px, 6vh, 80px);
+    width: 100%;
 }
 
 .profile {
@@ -20,8 +12,6 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    flex: 1;
-    min-width: 300px;
 }
 
 .socials{
@@ -34,20 +24,16 @@
 
 .socials a{
     color: var(--color-text);
-    transition: transform 0.2s ease, color 0.2s ease; /* Adicionado transição suave */
+    transition: transform 0.2s ease, color 0.2s ease;
 }
 
-/* Em mobile, removemos o scale para evitar que fique 'preso' após o toque */
-@media (hover: hover) {
-    .socials a:hover{
-        color: var(--color-sage);
-        scale: 1.2;
-    }
+.socials a:hover{
+    color: var(--color-sage);
+    scale: 1.2;
 }
 
 h1 {
-    font-size: clamp(2.5rem, 5vw, 3rem); /* Responsivo */
-    margin: 0 0 1rem 0;
+    font-size: clamp(2.5rem, 5vw, 3rem);
     color: var(--color-Pine);
     letter-spacing: -0.02em;
     line-height: 1.1;
@@ -88,14 +74,13 @@ p {
 @media (max-width: 768px) {
     .heroWrapper {
         display: flex;
-        flex-direction: column-reverse; /* Empilha verticalmente */
-        /* Garante o centro vertical no modo coluna */
         justify-content: center;
-        /* Garante que o container tem altura suficiente para centralizar algo */
+        align-items: center;
         min-height: 100dvh;
-        gap: 2rem; /* Reduzido de 3rem */
+        gap: 2rem;
         width: 100%;
         padding-inline: 1rem;
+        padding-bottom: 0;
     }
 
     h1 {
@@ -113,7 +98,7 @@ p {
     }
 
     .projectsWrapper {
-        min-height: auto; /* Deixa crescer conforme o conteúdo no mobile */
+        min-height: auto; /* Deixa crescer conforme o conteÃºdo no mobile */
         padding-block: 60px;
         width: 100%;
     }
@@ -121,8 +106,9 @@ p {
     .aboutWrapper {
         width: 100%;
         padding-inline: 1.5rem;
-        min-height: auto;
-        margin-block-start: 40px;
+        min-height: 100dvh; /* Força 100vh no mobile */
+        height: 100dvh;
+        margin-block-start: 0;
         padding-block: 40px;
     }
 }

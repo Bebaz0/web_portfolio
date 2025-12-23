@@ -28,15 +28,22 @@ function PauseOnHover() {
                 },
             },
             {
-                breakpoint: 600,
+                breakpoint: 768,
                 settings: {
                     slidesToShow: 1,
                     slidesToScroll: 1,
                 },
             },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    centerMode: true,
+                },
+            },
         ],
     };
-
     const projects = [
         {
             title: t("projects.list.PortoBox.title"),

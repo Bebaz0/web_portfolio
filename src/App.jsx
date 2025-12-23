@@ -11,8 +11,8 @@ function App() {
 
     return (
         <>
+            <LanguageToggle />
             <section className={'heroWrapper'}>
-                <LanguageToggle />
                 <div className={'profile'}>
                     <h1>{t('profile.name')}</h1>
                     <div className={'socials'}>
