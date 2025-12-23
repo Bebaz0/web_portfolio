@@ -1,18 +1,16 @@
 .heroWrapper {
-    position: relative; /* anchor for the language toggle */
-
+    position: relative;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     gap: 4rem;
     flex-wrap: wrap;
-
+    /* Alterado de height fixo para min-height com dvh para suportar mobile browsers */
+    min-height: 100dvh;
     width: min(var(--container-max), 100% - 2rem);
     padding-inline: 0.5rem;
     margin: 0 auto;
-
-    /* ample spacing for the hero */
     padding-top: clamp(24px, 6vh, 96px);
     padding-bottom: clamp(24px, 6vh, 80px);
 }
@@ -36,17 +34,23 @@
 
 .socials a{
     color: var(--color-text);
+    transition: transform 0.2s ease, color 0.2s ease; /* Adicionado transição suave */
 }
-.socials a:hover{
-    color: var(--color-sage);
-    scale: 1.2;
+
+/* Em mobile, removemos o scale para evitar que fique 'preso' após o toque */
+@media (hover: hover) {
+    .socials a:hover{
+        color: var(--color-sage);
+        scale: 1.2;
+    }
 }
 
 h1 {
-    font-size: 3rem;
+    font-size: clamp(2.5rem, 5vw, 3rem); /* Responsivo */
     margin: 0 0 1rem 0;
     color: var(--color-Pine);
     letter-spacing: -0.02em;
+    line-height: 1.1;
 }
 
 p {
@@ -57,68 +61,73 @@ p {
     font-weight: 400;
 }
 
-.todo {
-    flex: 1;
-    min-width: 320px;
-    display: flex;
-    justify-content: center;
-}
-
-/* Projects: give the section full viewport presence + breathing room */
 .projectsWrapper{
     width: min(var(--container-max), 100% - 2rem);
     margin-inline: auto;
-
-    min-height: 100vh; /* full viewport */
+    min-height: 100dvh; /* Usar dvh */
     padding-block: clamp(56px, 14vh, 140px);
-
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    overflow-x: hidden; /* Evita scroll horizontal indesejado */
 }
 
 .aboutWrapper{
     width: min(var(--container-max), 100% - 2rem);
     margin-inline: auto;
-
-    min-height: 100vh; /* garante a altura da viewport */
-
-
+    min-height: 100dvh;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;  /* conteúdo no topo */
+    justify-content: flex-start;
     align-items: center;
     gap: clamp(20px, 4vh, 40px);
+    padding-bottom: 50px; /* Espaço extra no final */
 }
 
 @media (max-width: 768px) {
+
+    @media (max-width: 768px) {
+        .heroWrapper {
+
+    }
     .heroWrapper {
-        gap: 3rem;
-        flex-direction: column-reverse;
-        padding-top: clamp(16px, 4vh, 48px);
-        padding-bottom: clamp(16px, 4vh, 48px);
-        width: min(var(--container-max), 100% - 1.5rem);
+        display: flex;
+        flex-direction: column-reverse; /* Empilha verticalmente */
+        /* Garante o centro vertical no modo coluna */
+        justify-content: center;
+        /* Garante que o container tem altura suficiente para centralizar algo */
+        min-height: 100dvh;
+        gap: 2rem; /* Reduzido de 3rem */
+        width: 100%;
+        padding-inline: 1rem;
     }
 
     h1 {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
     }
 
     p {
         font-size: 1rem;
-        padding: 0 1rem;
+        padding: 0;
+    }
+
+    .profile {
+        min-width: auto;
+        width: 100%;
     }
 
     .projectsWrapper {
-        min-height: 100vh;
-        padding-block: clamp(40px, 12vh, 96px);
-        width: min(var(--container-max), 100% - 1.5rem);
+        min-height: auto; /* Deixa crescer conforme o conteúdo no mobile */
+        padding-block: 60px;
+        width: 100%;
     }
 
     .aboutWrapper {
-        width: min(var(--container-max), 100% - 1.5rem);
-        margin-block-start: clamp(32px, 6vh, 64px);
-        padding-block: clamp(32px, 8vh, 64px);
+        width: 100%;
+        padding-inline: 1.5rem;
+        min-height: auto;
+        margin-block-start: 40px;
+        padding-block: 40px;
     }
 }

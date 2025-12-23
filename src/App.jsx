@@ -39,7 +39,6 @@ function App() {
                         </a>
                     </div>
                     <p>{t('profile.description')}</p>
-                    <TechStack/>
                 </div>
             </section>
             <section className={"projectsWrapper"}>

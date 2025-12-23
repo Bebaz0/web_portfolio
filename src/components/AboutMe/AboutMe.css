@@ -1,30 +1,43 @@
-.aboutContent{
+.aboutContent {
     display: flex;
     flex-direction: column;
     margin: 30px;
+    align-items: center; /* Centraliza conteúdo */
 }
 
 .aboutContent h2 {
     color: var(--color-Pine);
     font-weight: 600;
     font-size: 2.5rem;
+    margin-bottom: 1rem;
 }
 
 .aboutContent p {
     line-height: 1.6;
     color: var(--color-text-muted);
     text-align: left;
-    max-width: 40ch;   /* antes 68ch: linhas mais estreitas */
-    margin: 0 auto;    /* centra o bloco de texto */
+
+    width: 100%;
+    max-width: 600px;
+
+    margin: 0 auto;
     display: block;
-    -webkit-line-clamp: unset;
-    -webkit-box-orient: unset;
     overflow: visible;
-    max-height: none;
 }
 
 @media (max-width: 768px) {
+    .aboutContent {
+        margin: 0; /* Remove margem externa, container pai já tem padding */
+        width: 100%;
+    }
+
     .aboutContent h2 {
-        font-size: 1.3rem;
+        font-size: 1.8rem; /* Aumentei um pouco, 1.3rem era muito pequeno */
+        align-self: flex-start; /* Alinha título à esquerda no mobile se preferir, ou center */
+    }
+
+    .aboutContent p {
+        font-size: 1rem;
+        text-align: left;
     }
 }

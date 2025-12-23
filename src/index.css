@@ -11,7 +11,7 @@
     --color-text: #1a1a1a;
     --color-text-muted: #666666;
 
-    /* CHANGED: Sage Green Theme */
+    /* CHANGED:  Sage Green Theme */
     --color-sage: #64b6ac;      /* Soft Sage Green */
     --color-Pine: #2d7a70; /* Deep Pine Green */
 
@@ -31,48 +31,66 @@
 
 @font-face {
     font-family: public-pixel;
-    src: url("/fonts/public-pixel");
+    src:url("/fonts/public-pixel");
 }
 @font-face {
-    font-family: chill;
-    src: url("/fonts/chill.woff");
+    font-family:  chill;
+    src:url("/fonts/chill.woff");
 }
 
 /* Animations */
 @-webkit-keyframes bg-scrolling-reverse {
     100% { background-position: var(--background-position); }
 }
-@-moz-keyframes    bg-scrolling-reverse {
-    100% { background-position: var(--background-position); }
+@-moz-keyframes bg-scrolling-reverse {
+    100% { background-position:  var(--background-position); }
 }
-@-o-keyframes      bg-scrolling-reverse {
-    100% { background-position: var(--background-position); }
+@-o-keyframes bg-scrolling-reverse {
+    100% { background-position:  var(--background-position); }
 }
-@keyframes         bg-scrolling-reverse {
-    100% { background-position: var(--background-position); }
+@keyframes bg-scrolling-reverse {
+    100% { background-position:  var(--background-position); }
 }
 
 @-webkit-keyframes bg-scrolling {
     0% { background-position: var(--background-position); }
 }
-@-moz-keyframes    bg-scrolling {
+@-moz-keyframes bg-scrolling {
     0% { background-position: var(--background-position); }
 }
-@-o-keyframes      bg-scrolling {
+@-o-keyframes bg-scrolling {
     0% { background-position: var(--background-position); }
 }
-@keyframes         bg-scrolling {
+@keyframes bg-scrolling {
     0% { background-position: var(--background-position); }
+}
+
+/* Global box-sizing for better mobile handling */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html {
+    scrollbar-gutter: stable;
+}
+
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    text-wrap: balance;
+}
+p {
+    text-wrap: pretty;
 }
 
 body {
-    /* removed large top margin that created unused space */
-    /* margin-top: 13.5rem; */
-
     color: var(--color-text);
     text-align: center;
 
-    font-family: "chill", sans-serif;
+    font-family:  "chill", sans-serif;
     font-size: 18px;
 
     background-color: var(--color-bg);
@@ -82,23 +100,43 @@ body {
             linear-gradient(var(--grid-color) 1px, transparent 1px),
             linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
 
-    background-size: var(--bg-width) var(--bg-height);
+    background-size:  var(--bg-width) var(--bg-height);
 
     -webkit-animation: bg-scrolling-reverse 1.92s infinite linear;
     animation: bg-scrolling-reverse 1.92s infinite linear;
+
+    /* Prevent horizontal scroll on mobile */
+    overflow-x:  hidden;
+    margin:  0;
+    padding: 0;
+
+    /* Smooth scrolling */
+    scroll-behavior: smooth;
 }
 
 body::after {
-    content: "";
+    content:  "";
     position: fixed;
-    top: 0;
+    top:  0;
     left: 0;
     width: 100%;
     height: 100%;
 
     /* Fades from Transparent Center -> Solid White Edges */
-    background: radial-gradient(circle at center, transparent 30%, var(--color-bg) 80%);
+    background:  radial-gradient(circle at center, transparent 30%, var(--color-bg) 80%);
 
     z-index: -1; /* Keeps it behind */
     pointer-events: none;
+}
+
+/* Mobile-specific adjustments */
+@media (max-width:  480px) {
+:root {
+    --bg-width: 40px;
+    --bg-height: 40px;
+}
+
+    body {
+        font-size: 16px;
+    }
 }
