@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, {useEffect, useRef} from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -10,6 +10,7 @@ import RouletteButton from "../RouletteButton/RouletteButton.jsx";
 function PauseOnHover() {
     const { t } = useTranslation();
     const sliderRef = useRef(null);
+
 
     const settings = {
         dots: true,
@@ -92,6 +93,11 @@ function PauseOnHover() {
             link: "https://deanrok.com/",
         },
     ];
+
+    useEffect(() => {
+        // Force a window resize event on mount
+        window.dispatchEvent(new Event("resize"));
+    }, []);
 
     return (
         <div className="slider-container">
