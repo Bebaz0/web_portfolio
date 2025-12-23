@@ -19,6 +19,7 @@ function PauseOnHover() {
         autoplay: true,
         autoplaySpeed: 3000,
         pauseOnHover: true,
+        adaptiveHeight: true,
         responsive: [
             {
                 breakpoint: 1024,
@@ -32,18 +33,22 @@ function PauseOnHover() {
                 settings: {
                     slidesToShow: 1,
                     slidesToScroll: 1,
+                    centerMode: false,
+                    arrows: false,
                 },
             },
             {
-                breakpoint: 600,
+                breakpoint: 480,
                 settings: {
                     slidesToShow: 1,
                     slidesToScroll: 1,
-                    centerMode: true,
+                    centerMode: false,
+                    arrows: false,
                 },
             },
         ],
     };
+
     const projects = [
         {
             title: t("projects.list.PortoBox.title"),

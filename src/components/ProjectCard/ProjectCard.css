@@ -9,7 +9,7 @@
     height: 420px; /* Altura fixa Desktop */
     display: flex;
     flex-direction: column;
-    max-width: 28vb;
+    max-width: 100%;
     cursor: pointer; /* Indica clicável */
 }
 
