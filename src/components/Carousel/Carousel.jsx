@@ -11,52 +11,46 @@ function PauseOnHover() {
     const { t } = useTranslation();
     const sliderRef = useRef(null);
 
-    // State to force remount of the slider
-    const [isMounted, setIsMounted] = useState(false);
+    // State to manage the slidesToShow dynamically
+    const [slidesToShow, setSlidesToShow] = useState(3);
 
     useEffect(() => {
-        // Trigger a remount of the slider after the component mounts
-        const timer = setTimeout(() => setIsMounted(true), 50); // Delay to ensure DOM readiness
+        // Function to determine slidesToShow based on screen width
+        const updateSlidesToShow = () => {
+            if (window.innerWidth <= 600) {
+                // Small mobile screens
+                setSlidesToShow(1);
+            } else if (window.innerWidth <= 1024) {
+                // Tablets
+                setSlidesToShow(2);
+            } else {
+                // Desktops
+                setSlidesToShow(3);
+            }
+        };
 
-        return () => clearTimeout(timer); // Cleanup to prevent memory leaks
+        // Run on initial load
+        updateSlidesToShow();
+
+        // Add a resize event listener to update dynamically
+        window.addEventListener("resize", updateSlidesToShow);
+
+        // Cleanup the event listener on component unmount
+        return () => {
+            window.removeEventListener("resize", updateSlidesToShow);
+        };
     }, []);
 
     const settings = {
         dots: true,
         infinite: true,
-        slidesToShow: 3,
+        slidesToShow: slidesToShow, // Dynamically set based on screen size
         slidesToScroll: 1,
         autoplay: true,
         autoplaySpeed: 3000,
         pauseOnHover: true,
         adaptiveHeight: true,
-        responsive: [
-            {
-                breakpoint: 1024,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 1,
-                },
-            },
-            {
-                breakpoint: 768,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                    centerMode: false,
-                    arrows: false,
-                },
-            },
-            {
-                breakpoint: 480,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                    centerMode: false,
-                    arrows: false,
-                },
-            },
-        ],
+        arrows: slidesToShow > 1, // Hide arrows for one-slide layout
     };
 
     const projects = [
@@ -103,11 +97,6 @@ function PauseOnHover() {
             link: "https://deanrok.com/",
         },
     ];
-
-    if (!isMounted) {
-        // Render a placeholder while waiting for the remount
-        return <div>Loading carousel...</div>;
-    }
 
     return (
         <div className="slider-container">
