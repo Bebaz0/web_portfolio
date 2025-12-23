@@ -1,4 +1,4 @@
-import React, {useEffect, useRef} from "react";
+import React, { useRef, useEffect, useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -11,6 +11,15 @@ function PauseOnHover() {
     const { t } = useTranslation();
     const sliderRef = useRef(null);
 
+    // State to force remount of the slider
+    const [isMounted, setIsMounted] = useState(false);
+
+    useEffect(() => {
+        // Trigger a remount of the slider after the component mounts
+        const timer = setTimeout(() => setIsMounted(true), 50); // Delay to ensure DOM readiness
+
+        return () => clearTimeout(timer); // Cleanup to prevent memory leaks
+    }, []);
 
     const settings = {
         dots: true,
@@ -20,6 +29,7 @@ function PauseOnHover() {
         autoplay: true,
         autoplaySpeed: 3000,
         pauseOnHover: true,
+        adaptiveHeight: true,
         responsive: [
             {
                 breakpoint: 1024,
@@ -94,10 +104,10 @@ function PauseOnHover() {
         },
     ];
 
-    useEffect(() => {
-        // Force a window resize event on mount
-        window.dispatchEvent(new Event("resize"));
-    }, []);
+    if (!isMounted) {
+        // Render a placeholder while waiting for the remount
+        return <div>Loading carousel...</div>;
+    }
 
     return (
         <div className="slider-container">
@@ -114,10 +124,7 @@ function PauseOnHover() {
                 ))}
             </Slider>
 
-            <RouletteButton
-                sliderRef={sliderRef}
-                projectCount={projects.length}
-            />
+            <RouletteButton sliderRef={sliderRef} projectCount={projects.length} />
         </div>
     );
 }
