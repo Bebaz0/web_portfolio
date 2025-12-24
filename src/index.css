@@ -35,7 +35,8 @@
 }
 @font-face {
     font-family:  chill;
-    src:url("/fonts/chill.woff");
+    src:url("/fonts/Chill-PT.woff2") format("woff2");
+    font-display: swap;
 }
 
 /* Animations */
@@ -90,7 +91,7 @@ body {
     color: var(--color-text);
     text-align: center;
 
-    font-family:  "chill", sans-serif;
+    font-family: "chill";
     font-size: 18px;
 
     background-color: var(--color-bg);
