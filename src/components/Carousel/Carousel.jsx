@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -11,42 +11,46 @@ function PauseOnHover() {
     const { t } = useTranslation();
     const sliderRef = useRef(null);
 
+    // State to manage the slidesToShow dynamically
+    const [slidesToShow, setSlidesToShow] = useState(3);
+
+    useEffect(() => {
+        // Function to determine slidesToShow based on screen width
+        const updateSlidesToShow = () => {
+            if (window.innerWidth <= 600) {
+                // Small mobile screens
+                setSlidesToShow(1);
+            } else if (window.innerWidth <= 1024) {
+                // Tablets
+                setSlidesToShow(2);
+            } else {
+                // Desktops
+                setSlidesToShow(3);
+            }
+        };
+
+        // Run on initial load
+        updateSlidesToShow();
+
+        // Add a resize event listener to update dynamically
+        window.addEventListener("resize", updateSlidesToShow);
+
+        // Cleanup the event listener on component unmount
+        return () => {
+            window.removeEventListener("resize", updateSlidesToShow);
+        };
+    }, []);
+
     const settings = {
         dots: true,
         infinite: true,
-        slidesToShow: 3,
+        slidesToShow: slidesToShow, // Dynamically set based on screen size
         slidesToScroll: 1,
         autoplay: true,
         autoplaySpeed: 3000,
         pauseOnHover: true,
         adaptiveHeight: true,
-        responsive: [
-            {
-                breakpoint: 1024,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 1,
-                },
-            },
-            {
-                breakpoint: 768,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                    centerMode: false,
-                    arrows: false,
-                },
-            },
-            {
-                breakpoint: 480,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                    centerMode: false,
-                    arrows: false,
-                },
-            },
-        ],
+        arrows: slidesToShow > 1, // Hide arrows for one-slide layout
     };
 
     const projects = [
@@ -109,10 +113,7 @@ function PauseOnHover() {
                 ))}
             </Slider>
 
-            <RouletteButton
-                sliderRef={sliderRef}
-                projectCount={projects.length}
-            />
+            <RouletteButton sliderRef={sliderRef} projectCount={projects.length} />
         </div>
     );
 }

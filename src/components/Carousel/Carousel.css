@@ -58,12 +58,6 @@
         padding: 0 6px;
     }
 
-    /* Make the card fill the slide width on mobile */
-    .slick-slide > div .card-wrapper {
-        width: 100% !important;
-        max-width: none !important;
-        margin: 0;
-    }
 
     .slick-dots {
         bottom: -20px;
