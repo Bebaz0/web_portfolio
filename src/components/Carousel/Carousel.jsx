@@ -58,7 +58,7 @@ function PauseOnHover() {
             title: t("projects.list.PortoBox.title"),
             imgsrc: "/projects/portobox.png",
             description: t("projects.list.PortoBox.description"),
-            link: "https://github.com/Bebaz0/client-work-showcase/tree/main/PortoBoxCup",
+            link: "portoboxcup.com",
         },
         {
             title: t("projects.list.ReservationApp.title"),
@@ -76,7 +76,7 @@ function PauseOnHover() {
             title: t("projects.list.Photography.title"),
             imgsrc: "/projects/photography.png",
             description: t("projects.list.Photography.description"),
-            link: "https://github.com/Bebaz0/client-work-showcase/tree/main/MariaBragancaFotografia",
+            link: "https://mariabragancafotografia.pt/",
         },
         {
             title: t("projects.list.Portfolio.title"),
@@ -85,10 +85,10 @@ function PauseOnHover() {
             link: "https://github.com/Bebaz0/web_portfolio",
         },
         {
-            title: t("projects.list.Country.title"),
-            imgsrc: "/projects/country.png",
-            description: t("projects.list.Country.description"),
-            link: "https://github.com/Bebaz0/country-info-with-themes",
+            title: t("projects.list.mm.title"),
+            imgsrc: "/projects/mmwatches.png",
+            description: t("projects.list.mm.description"),
+            link: "https://mm-watches.netlify.app/",
         },
         {
             title: t("projects.list.Dean.title"),
