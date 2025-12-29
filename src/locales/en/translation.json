@@ -43,9 +43,9 @@
         "title": "Scrim Image Editor",
         "description": "Lightweight, command-driven image editor in C++; interprets text-based instruction files for image manipulations."
       },
-      "Country": {
-        "title": "REST Countries API",
-        "description": "Country explorer app using an API: view all countries, search, filter by region, see details on a separate page, navigate to bordering countries."
+      "mm": {
+        "title": "Custom Watches Store",
+        "description": "A e store for a custom watches brand settle in Portugal. Full page still in the making. You can visit and expect a unique responsive design"
       },
       "Dean": {
         "title": "Dean Rök",

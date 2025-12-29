@@ -43,9 +43,9 @@
         "title": "Editor de imagem Scrim",
         "description": "Editor de imagens leve, baseado em comandos, em C++; interpreta ficheiros de instruções em texto para manipulações de imagem."
       },
-      "Country": {
-        "title": "Explorador de Países",
-        "description": "Exploração de países com API: ver países, pesquisar, filtrar por região, ver detalhes e navegar para países vizinhos."
+      "mm": {
+        "title": "Loja de Relógios Costumizados",
+        "description": "Loja online de relógios, atualmente em construção, com um design único e totalmente responsivo."
       },
       "Dean": {
         "title": "Dean Rök",
