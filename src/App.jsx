@@ -41,9 +41,9 @@ function App() {
                     <p>{t('profile.description')}</p>
                 </div>
             </section>
-            <section className={"projectsWrapper"}>
+            {/*<section className={"projectsWrapper"}>
                 <Carousel/>
-            </section>
+            </section>*/}
             <section className={"aboutWrapper"}>
                 <AboutMe/>
             </section>
