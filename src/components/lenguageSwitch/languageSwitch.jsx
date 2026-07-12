@@ -9,7 +9,7 @@ export default function LanguageToggle() {
     };
 
     return (
-        <button className="language-toggle" onClick={toggle}>
+        <button className="language-toggle glass" onClick={toggle}>
             {i18n.language === "pt" ? "EN" : "PT"}
         </button>
     );

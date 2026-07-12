@@ -47,6 +47,14 @@ p {
     font-weight: 400;
 }
 
+.spotlightWrapper {
+    width: min(var(--container-max), 100% - 2rem);
+    margin-inline: auto;
+    display: flex;
+    justify-content: center;
+    padding-block: var(--section-gap);
+}
+
 .projectsWrapper{
     width: min(var(--container-max), 100% - 2rem);
     margin-inline: auto;
@@ -106,9 +114,13 @@ p {
     .aboutWrapper {
         width: 100%;
         padding-inline: 1.5rem;
-        min-height: 100dvh; /* Força 100vh no mobile */
-        height: 100dvh;
+        min-height: auto; /* cresce com o conteúdo (about + tech pills) */
         margin-block-start: 0;
-        padding-block: 40px;
+        padding-block: 40px 80px;
+    }
+
+    .spotlightWrapper {
+        width: 100%;
+        padding-inline: 1rem;
     }
 }

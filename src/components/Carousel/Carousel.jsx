@@ -1,121 +1,144 @@
-import React, { useRef, useEffect, useState } from "react";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import "./Carousel.css";
 import ProjectCard from "../ProjectCard/ProjectCard";
 import { useTranslation } from "react-i18next";
 import RouletteButton from "../RouletteButton/RouletteButton.jsx";
 
-function PauseOnHover() {
-    const { t } = useTranslation();
-    const sliderRef = useRef(null);
+const PROJECTS = [
+    { key: "HabitWar", imgsrc: "/projects/habitwar.png", link: "https://habitwar.app", tags: ["React Native", "Expo", "Supabase"] },
+    { key: "PortoBox", imgsrc: "/projects/portobox.png", link: "https://portoboxcup.com", tags: ["React", "Supabase"] },
+    { key: "Dean", imgsrc: "/projects/dean.png", link: "https://deanrok.com", tags: ["React", "Motion", "Tailwind"] },
+    { key: "ReservationApp", imgsrc: "/projects/restaurantapp.png", link: "https://github.com/Bebaz0/client-work-showcase/tree/main/RestaurantReservationsApp", tags: ["React", "Supabase", "PWA"] },
+    { key: "Photography", imgsrc: "/projects/photography.png", link: "https://mariabragancafotografia.pt/", tags: ["HTML", "CSS", "SEO"] },
+    { key: "mm", imgsrc: "/projects/mmwatches.png", link: "https://mm-watches.netlify.app/", tags: ["React", "E-commerce"] },
+];
 
-    // State to manage the slidesToShow dynamically
-    const [slidesToShow, setSlidesToShow] = useState(3);
+const COUNT = PROJECTS.length;
+
+function Carousel() {
+    const { t } = useTranslation();
+    const [index, setIndex] = useState(0);
+    const [paused, setPaused] = useState(false);
+    const dragStartX = useRef(null);
+    const dragged = useRef(false);
+
+    const goTo = useCallback((i) => setIndex(((i % COUNT) + COUNT) % COUNT), []);
+    const next = useCallback(() => setIndex((i) => (i + 1) % COUNT), []);
+    const prev = useCallback(() => setIndex((i) => (i - 1 + COUNT) % COUNT), []);
 
     useEffect(() => {
-        // Function to determine slidesToShow based on screen width
-        const updateSlidesToShow = () => {
-            if (window.innerWidth <= 600) {
-                // Small mobile screens
-                setSlidesToShow(1);
-            } else if (window.innerWidth <= 1024) {
-                // Tablets
-                setSlidesToShow(2);
-            } else {
-                // Desktops
-                setSlidesToShow(3);
-            }
-        };
+        if (paused || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+        const id = setInterval(next, 4500);
+        return () => clearInterval(id);
+    }, [paused, next]);
 
-        // Run on initial load
-        updateSlidesToShow();
-
-        // Add a resize event listener to update dynamically
-        window.addEventListener("resize", updateSlidesToShow);
-
-        // Cleanup the event listener on component unmount
-        return () => {
-            window.removeEventListener("resize", updateSlidesToShow);
-        };
-    }, []);
-
-    const settings = {
-        dots: true,
-        infinite: true,
-        slidesToShow: slidesToShow, // Dynamically set based on screen size
-        slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 3000,
-        pauseOnHover: true,
-        adaptiveHeight: true,
-        arrows: slidesToShow > 1, // Hide arrows for one-slide layout
+    // Signed circular distance from the active card, in (-COUNT/2, COUNT/2]
+    const offsetOf = (i) => {
+        let d = (i - index + COUNT) % COUNT;
+        if (d > COUNT / 2) d -= COUNT;
+        return d;
     };
 
-    const projects = [
-        {
-            title: t("projects.list.PortoBox.title"),
-            imgsrc: "/projects/portobox.png",
-            description: t("projects.list.PortoBox.description"),
-            link: "portoboxcup.com",
-        },
-        {
-            title: t("projects.list.ReservationApp.title"),
-            imgsrc: "/projects/restaurantapp.png",
-            description: t("projects.list.ReservationApp.description"),
-            link: "https://github.com/Bebaz0/client-work-showcase/tree/main/RestaurantReservationsApp",
-        },
-        {
-            title: t("projects.list.Scrim.title"),
-            imgsrc: "",
-            description: t("projects.list.Scrim.description"),
-            link: "https://github.com/Bebaz0/Scrim-Image-Editor",
-        },
-        {
-            title: t("projects.list.Photography.title"),
-            imgsrc: "/projects/photography.png",
-            description: t("projects.list.Photography.description"),
-            link: "https://mariabragancafotografia.pt/",
-        },
-        {
-            title: t("projects.list.Portfolio.title"),
-            imgsrc: "/projects/portfolio.png",
-            description: t("projects.list.Portfolio.description"),
-            link: "https://github.com/Bebaz0/web_portfolio",
-        },
-        {
-            title: t("projects.list.mm.title"),
-            imgsrc: "/projects/mmwatches.png",
-            description: t("projects.list.mm.description"),
-            link: "https://mm-watches.netlify.app/",
-        },
-        {
-            title: t("projects.list.Dean.title"),
-            imgsrc: "/projects/dean.png",
-            description: t("projects.list.Dean.description"),
-            link: "https://deanrok.com/",
-        },
-    ];
+    const onPointerDown = (e) => {
+        dragStartX.current = e.clientX;
+        dragged.current = false;
+        setPaused(true);
+    };
+    const onPointerMove = (e) => {
+        if (dragStartX.current !== null && Math.abs(e.clientX - dragStartX.current) > 8) {
+            dragged.current = true;
+        }
+    };
+    const onPointerUp = (e) => {
+        if (dragStartX.current === null) return;
+        const dx = e.clientX - dragStartX.current;
+        dragStartX.current = null;
+        if (dx > 40) prev();
+        else if (dx < -40) next();
+    };
+    const onClickCapture = (e) => {
+        if (dragged.current) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+    };
+    const onKeyDown = (e) => {
+        if (e.key === "ArrowLeft") { e.preventDefault(); prev(); }
+        if (e.key === "ArrowRight") { e.preventDefault(); next(); }
+    };
 
     return (
-        <div className="slider-container">
+        <div className="coverflow-container">
             <h2 className="projects-title">{t("projects.title")}</h2>
-            <Slider ref={sliderRef} {...settings}>
-                {projects.map((project, index) => (
-                    <ProjectCard
-                        key={index}
-                        title={project.title}
-                        imgsrc={project.imgsrc}
-                        description={project.description}
-                        link={project.link}
-                    />
-                ))}
-            </Slider>
 
-            <RouletteButton sliderRef={sliderRef} projectCount={projects.length} />
+            <div
+                className="coverflow-stage"
+                role="region"
+                aria-roledescription="carousel"
+                aria-label={t("projects.title")}
+                tabIndex={0}
+                onKeyDown={onKeyDown}
+                onPointerDown={onPointerDown}
+                onPointerMove={onPointerMove}
+                onPointerUp={onPointerUp}
+                onPointerLeave={onPointerUp}
+                onClickCapture={onClickCapture}
+                onMouseEnter={() => setPaused(true)}
+                onMouseLeave={() => setPaused(false)}
+            >
+                {PROJECTS.map((project, i) => {
+                    const off = offsetOf(i);
+                    const abs = Math.abs(off);
+                    return (
+                        <div
+                            key={project.key}
+                            className={`coverflow-item${off === 0 ? " is-active" : ""}${abs > 2 ? " is-hidden" : ""}${abs === 2 ? " is-far" : ""}`}
+                            style={{ "--off": off, "--abs": abs }}
+                            aria-hidden={off !== 0}
+                            onClick={off !== 0 ? () => goTo(i) : undefined}
+                        >
+                            <ProjectCard
+                                title={t(`projects.list.${project.key}.title`)}
+                                imgsrc={project.imgsrc}
+                                description={t(`projects.list.${project.key}.description`)}
+                                link={project.link}
+                                tags={project.tags}
+                                interactive={off === 0}
+                            />
+                        </div>
+                    );
+                })}
+            </div>
+
+            <div className="coverflow-controls">
+                <button className="coverflow-arrow glass" onClick={prev} aria-label={t("projects.prev")}>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="m15 18-6-6 6-6"/>
+                    </svg>
+                </button>
+                <div className="coverflow-dots">
+                    {PROJECTS.map((project, i) => (
+                        <button
+                            key={project.key}
+                            className={`coverflow-dot${i === index ? " is-active" : ""}`}
+                            onClick={() => goTo(i)}
+                            aria-label={`${t("projects.goToSlide")} ${i + 1}`}
+                            aria-current={i === index}
+                        />
+                    ))}
+                </div>
+                <button className="coverflow-arrow glass" onClick={next} aria-label={t("projects.next")}>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="m9 18 6-6-6-6"/>
+                    </svg>
+                </button>
+            </div>
+
+            <RouletteButton onStep={next} projectCount={COUNT} />
         </div>
     );
 }
 
-export default PauseOnHover;
+export default Carousel;

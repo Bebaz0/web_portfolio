@@ -1,29 +1,27 @@
 .card-wrapper {
-    background: white;
-    border-radius: 12px;
     padding: 1.25rem;
-    margin: 0.9rem; /* Margem desktop */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-    transition: all 0.3s ease;
-    border: 2px solid transparent;
-    height: 420px; /* Altura fixa Desktop */
+    height: 420px;
     display: flex;
     flex-direction: column;
-    max-width: 100%;
-    cursor: pointer; /* Indica clicável */
+    cursor: pointer;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
-.card-wrapper:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 12px rgba(100, 182, 172, 0.18);
+/* Active card is fully opaque so cards behind it never bleed through */
+.coverflow-item.is-active .card-wrapper {
+    background: #fff;
+}
+
+.coverflow-item.is-active .card-wrapper:hover {
     border-color: var(--color-sage);
+    box-shadow: 0 12px 40px rgba(100, 182, 172, 0.25);
 }
 
 .card-wrapper h2 {
     text-align: left;
     font-size: 1.5rem;
     color: var(--color-Pine);
-    margin: 0 0 0.85rem 0;
+    margin: 0 0 0.6rem 0;
     font-weight: 600;
 }
 
@@ -31,17 +29,12 @@
     width: 100%;
     height: 170px;
     object-fit: cover;
-    border-radius: 8px;
-    background: linear-gradient(135deg, #e5e5e5 0%, #f4f4f4 100%);
+    object-position: top;
+    border-radius: 12px;
+    background: #ececec;
     margin-bottom: 0.85rem;
-}
-
-.project-info {
-    display: flex;
-    flex-direction: column;
-    gap: 0.85rem;
-    flex: 1;
-    justify-content: space-between;
+    pointer-events: none;
+    user-select: none;
 }
 
 .project-description {
@@ -50,44 +43,46 @@
     color: var(--color-text-muted);
     margin: 0;
     text-align: left;
+    flex: 1;
 
     display: -webkit-box;
-    -webkit-line-clamp: 6;
+    -webkit-line-clamp: 5;
+    line-clamp: 5;
     -webkit-box-orient: vertical;
     overflow: hidden;
-    /* Fallback */
-    max-height: calc(1.6em * 6);
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.85rem;
+}
+
+.project-tag {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--color-Pine);
+    background: rgba(100, 182, 172, 0.15);
+    border: 1px solid rgba(100, 182, 172, 0.35);
+    border-radius: 999px;
+    padding: 0.25rem 0.7rem;
+    white-space: nowrap;
 }
 
 /* Mobile */
 @media (max-width: 768px) {
     .card-wrapper {
-        height: auto; /* Altura automática para evitar overflow */
-        min-height: 380px; /* Garante consistência visual */
-        margin: 0.5rem 0.2rem; /* Margens laterais menores para ganhar espaço */
+        height: 400px;
         padding: 1rem;
-    }
-
-    .card-wrapper:hover {
-        transform: none; /* Desativa movimento no touch */
     }
 
     .card-wrapper h2 {
         font-size: 1.3rem;
-        margin-bottom: 0.6rem;
     }
 
     .card-wrapper img {
         height: 150px;
-        margin-bottom: 0.6rem;
-    }
-
-    .project-info {
-        gap: 0.5rem;
-    }
-
-    .project-description {
-        -webkit-line-clamp: 5;
-        /* Remove max-height fixo se necessário, ou ajusta */
     }
 }

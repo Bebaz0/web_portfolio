@@ -1,7 +1,7 @@
 {
   "profile": {
     "name": "Afonso Lima",
-    "description": "Desenvolvedor Portuges. Focado em construção de aplicações mobile mas tambem tenho interesse em game dev e web dev. Impulsionado por uma mentalidade criativa."
+    "description": "Estudante de Engenharia Informática em Portugal. O desenvolvimento full-stack é o meu hobby: construo aplicações mobile, websites e sistemas de gestão, e gosto de ver as pessoas a usá-los."
   },
   "todo": {
     "title": "Tarefas do Portfólio",
@@ -15,37 +15,43 @@
       "goTop": "Voltar ao topo"
     }
   },
+  "spotlight": {
+    "label": "Em construção",
+    "title": "HabitWar",
+    "description": "Um habit tracker gamificado onde combates contra os teus amigos: mantém as streaks vivas, sobe na leaderboard e prova os teus hábitos com fotos, timers e localização. Construído com React Native e Expo sobre um backend Supabase, com subscrições, notificações push e widgets.",
+    "cta": "Visitar habitwar.app"
+  },
   "projects": {
     "title": "O meu trabalho",
     "noImg": "Projeto sem imagem",
-    "roulette":{
+    "visit": "Visitar projeto",
+    "prev": "Projeto anterior",
+    "next": "Projeto seguinte",
+    "goToSlide": "Ir para o projeto",
+    "roulette": {
       "button": "Sorteia um Projeto",
-      "spinning": "Loading"
+      "spinning": "A sortear..."
     },
     "list": {
+      "HabitWar": {
+        "title": "HabitWar",
+        "description": "App gamificada de hábitos para iOS e Android. Combate contra amigos, mantém streaks e prova hábitos com foto, timer e localização. Produto completo: auth, subscrições, widgets e analytics."
+      },
       "PortoBox": {
         "title": "Porto Box Cup",
-        "description": "Site do Maior Evento de Boxe Anual da Europa com informações, estatisticas, páginas para equipas e sistema de registos."
+        "description": "Site de um dos maiores eventos anuais de boxe da Europa: registos, informações, páginas de equipas e estatísticas, tudo sobre uma base de dados real."
       },
       "ReservationApp": {
         "title": "Gestão de Reservas",
         "description": "Gestão de reservas para empresas: criar, cancelar e consultar reservas; gerir marcações e horários."
       },
       "Photography": {
-        "title": "Artista fotográfica",
+        "title": "Artista Fotográfica",
         "description": "Site Maria Bragança Fotografia apresentando o trabalho de Maria Bragança; especializada em recém-nascidos, família e maternidade."
       },
-      "Portfolio": {
-        "title": "Site Portfolio",
-        "description": "Este website... tira as conclusões. Também podes consultar o código."
-      },
-      "Scrim": {
-        "title": "Editor de imagem Scrim",
-        "description": "Editor de imagens leve, baseado em comandos, em C++; interpreta ficheiros de instruções em texto para manipulações de imagem."
-      },
       "mm": {
-        "title": "Loja de Relógios Costumizados",
-        "description": "Loja online de relógios, atualmente em construção, com um design único e totalmente responsivo."
+        "title": "Loja de Relógios Customizados",
+        "description": "Loja online de uma marca de relógios customizados sediada em Portugal, com um design único e totalmente responsivo."
       },
       "Dean": {
         "title": "Dean Rök",
@@ -55,6 +61,6 @@
   },
   "about": {
     "title": "Sobre Mim",
-    "description": "Afonso Lima, estudante do segundo ano de Engenharia Informática na Faculdade de Engenharia da Universidade do Porto. Trabalho com foco em front-end e na criação de soluções funcionais e creativas. O meu tech stack principal é React, Node.js, CSS3, PostgreSQL e C++. Além disso, tenho bom domínio de C, Java, Python e SQLite, e experiência sólida com Git, UML e UI Design. Fora do mundo digital, sou campeão nacional de boxe, algo que faz parte do meu percurso e identidade. Gosto de manter as coisas objetivas: problemas claros, soluções diretas e resultados consistentes"
+    "description": "Sou o Afonso Lima, estudante de Engenharia Informática na Faculdade de Engenharia da Universidade do Porto. Fora das aulas, construo projetos full-stack por gosto: o HabitWar, uma app de hábitos para iOS e Android, além de websites e sistemas de reservas para pessoas à minha volta. Trabalho sobretudo com React, React Native com Expo, TypeScript, Node.js, Supabase e PostgreSQL, e também gosto de C++, Java e Python. Fora do mundo digital, sou campeão nacional de boxe, algo que faz parte do meu percurso e identidade."
   }
 }

@@ -1,26 +1,26 @@
 import React from 'react';
 import './ProjectCard.css'
-import {useTranslation} from "react-i18next";
 
-function ProjectCard({title,imgsrc,description,link}) {
+function ProjectCard({title, imgsrc, description, link, tags = [], interactive = true}) {
 
-    const {t} = useTranslation()
-
-    const handleClick = () =>{
-        window.open(link, "_blank");
+    const handleClick = () => {
+        if (interactive) window.open(link, "_blank", "noopener");
     }
 
     return (
-        <div onClick={handleClick} className={'card-wrapper'}>
-            {imgsrc === ""? <span></span>
-                : <img alt={"project-image"} src={imgsrc}/>
-            }
+        <div onClick={handleClick} className={'card-wrapper glass'}>
+            {imgsrc && <img alt={title} src={imgsrc} loading="lazy"/>}
             <h2>{title}</h2>
-            <div className={"project-info"}>
-                <p className="project-description">
-                    {description}
-                </p>
-            </div>
+            <p className="project-description">
+                {description}
+            </p>
+            {tags.length > 0 && (
+                <div className="project-tags">
+                    {tags.map((tag) => (
+                        <span key={tag} className="project-tag">{tag}</span>
+                    ))}
+                </div>
+            )}
         </div>
     );
 }

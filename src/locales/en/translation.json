@@ -1,7 +1,7 @@
 {
   "profile": {
     "name": "Afonso Lima",
-    "description": "Developer living in Portugal. Mostly building Mobile Applications, but also interested in game dev and web dev. Driven by a creator mentality."
+    "description": "Computer Engineering student in Portugal. Full-stack development is my hobby: I build mobile apps, websites, and management systems, and I enjoy watching people use them."
   },
   "todo": {
     "title": "Portfolio ToDo",
@@ -15,37 +15,43 @@
       "goTop": "Go back to the top"
     }
   },
+  "spotlight": {
+    "label": "Currently building",
+    "title": "HabitWar",
+    "description": "A gamified habit tracker where you battle friends: keep your streaks alive, climb the leaderboard, and prove your habits with photos, timers, and location. Built with React Native and Expo on a Supabase backend, with subscriptions, push notifications, and home screen widgets.",
+    "cta": "Visit habitwar.app"
+  },
   "projects": {
     "title": "My Work",
     "noImg": "No image for this Project",
-    "roulette":{
+    "visit": "Visit project",
+    "prev": "Previous project",
+    "next": "Next project",
+    "goToSlide": "Go to project",
+    "roulette": {
       "button": "Pick a random project",
       "spinning": "Spinning..."
     },
     "list": {
+      "HabitWar": {
+        "title": "HabitWar",
+        "description": "Gamified habit tracking app for iOS and Android. Battle friends, keep streaks, and verify habits with photo, timer, and location proof. Full product: auth, subscriptions, widgets, and analytics."
+      },
       "PortoBox": {
         "title": "Porto Box Cup",
-        "description": "An annual boxing event website to manage registrations, event info, and statistics."
+        "description": "Website for one of Europe's biggest annual boxing events: registrations, event info, team pages, and statistics, all backed by a real database."
       },
       "ReservationApp": {
         "title": "Reservation Management",
         "description": "Reservation management for businesses: create, cancel, and view reservations; manage bookings and schedules."
       },
       "Photography": {
-        "title": "Photography website",
+        "title": "Photography Website",
         "description": "Professional photography website showcasing the work of Maria Bragança; specializing in newborn, family, and maternity sessions."
-      },
-      "Portfolio": {
-        "title": "Portfolio Website",
-        "description": "This website; make your own conclusion. Also you can check the code."
-      },
-      "Scrim": {
-        "title": "Scrim Image Editor",
-        "description": "Lightweight, command-driven image editor in C++; interprets text-based instruction files for image manipulations."
       },
       "mm": {
         "title": "Custom Watches Store",
-        "description": "A e store for a custom watches brand settle in Portugal. Full page still in the making. You can visit and expect a unique responsive design"
+        "description": "Online store for a custom watches brand based in Portugal, with a unique and fully responsive design."
       },
       "Dean": {
         "title": "Dean Rök",
@@ -55,6 +61,6 @@
   },
   "about": {
     "title": "About Me",
-    "description": "I'm Afonso Lima, a second-year Computer Engineering student at the Faculty of Engineering of the University of Porto. I work with a focus on front-end development and on building functional, streamlined, and creative solutions. My main tech stack includes React, Node.js, CSS3, PostgreSQL, and C++. I also have strong knowledge of C, Java, Python, and SQLite, along with solid experience in Git, UML, and UI Design. Outside the digital world, I'm a national boxing champion, an important part of my background and identity. I keep things straightforward: clear problems, direct solutions, and consistent results."
+    "description": "I'm Afonso Lima, a Computer Engineering student at the Faculty of Engineering of the University of Porto. Outside classes, I build full-stack projects for fun: HabitWar, a habit tracking app for iOS and Android, plus websites and booking systems for people around me. I mostly work with React, React Native with Expo, TypeScript, Node.js, Supabase, and PostgreSQL, and I also enjoy C++, Java, and Python. Outside the digital world, I'm a national boxing champion, an important part of my background and identity."
   }
 }

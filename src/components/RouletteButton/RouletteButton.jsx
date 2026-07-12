@@ -5,7 +5,7 @@ import useSound from 'use-sound';
 import select from "/sounds/select.mp3"
 
 
-function RouletteButton({ sliderRef, projectCount }) {
+function RouletteButton({ onStep, projectCount }) {
     const { t } = useTranslation();
     const [isSpinning, setIsSpinning] = useState(false);
     const timerRef = useRef(null);
@@ -17,20 +17,20 @@ function RouletteButton({ sliderRef, projectCount }) {
     const [playSelect] = useSound(select);
 
     const spinRoulette = () => {
-        if (isSpinning || !sliderRef?.current || !projectCount) return;
+        if (isSpinning || !onStep || !projectCount) return;
 
         const total = projectCount;
         const extraLoops = 1; // how many turns
         const target = Math.floor(Math.random() * total);
         const totalSteps = extraLoops * total + target;
-        const intervalMs = 1000;
+        const intervalMs = 700;
 
         setIsSpinning(true);
         remainingStepsRef.current = totalSteps;
 
         timerRef.current = setInterval(() => {
             if (remainingStepsRef.current > 0) {
-                sliderRef.current?.slickNext();
+                onStep();
                 playSelect();
                 remainingStepsRef.current -= 1;
             } else {
