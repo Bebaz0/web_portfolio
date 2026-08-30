@@ -1,7 +1,7 @@
 {
   "profile": {
     "name": "Afonso Lima",
-    "description": "Estudante de Engenharia Informática em Portugal. O desenvolvimento full-stack é o meu hobby: construo aplicações mobile, websites e sistemas de gestão, e gosto de ver as pessoas a usá-los."
+    "description": "Estudante de Engenharia Informática em Portugal. Exploro os diversos campos de software."
   },
   "todo": {
     "title": "Tarefas do Portfólio",
@@ -61,6 +61,6 @@
   },
   "about": {
     "title": "Sobre Mim",
-    "description": "Sou o Afonso Lima, estudante de Engenharia Informática na Faculdade de Engenharia da Universidade do Porto. Fora das aulas, construo projetos full-stack por gosto: o HabitWar, uma app de hábitos para iOS e Android, além de websites e sistemas de reservas para pessoas à minha volta. Trabalho sobretudo com React, React Native com Expo, TypeScript, Node.js, Supabase e PostgreSQL, e também gosto de C++, Java e Python. Fora do mundo digital, sou campeão nacional de boxe, algo que faz parte do meu percurso e identidade."
+    "description": "Sou o Afonso Lima, estudante de Engenharia Informática na Faculdade de Engenharia da Universidade do Porto. Neste momento o meu foco está em self-hosting e desenvolvimento open source, corro os meus próprios serviços em Linux e Docker num servidor caseiro, e é aí que passo a maior parte do tempo livre. Antes disso construí o HabitWar, uma app de competição social para iOS e Android que continua no ar, e trabalho em web e mobile com React Native, Swift, TypeScript e PostgreSQL. Também escrevo C, C++, Java e Python. Fora do digital, sou campeão nacional de boxe, algo que faz parte do meu percurso e identidade."
   }
 }

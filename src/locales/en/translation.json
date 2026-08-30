@@ -1,7 +1,7 @@
 {
   "profile": {
     "name": "Afonso Lima",
-    "description": "Computer Engineering student in Portugal. Full-stack development is my hobby: I build mobile apps, websites, and management systems, and I enjoy watching people use them."
+    "description": "Computer Engineering student in Portugal. I explore the many different fields of software."
   },
   "todo": {
     "title": "Portfolio ToDo",
@@ -61,6 +61,6 @@
   },
   "about": {
     "title": "About Me",
-    "description": "I'm Afonso Lima, a Computer Engineering student at the Faculty of Engineering of the University of Porto. Outside classes, I build full-stack projects for fun: HabitWar, a habit tracking app for iOS and Android, plus websites and booking systems for people around me. I mostly work with React, React Native with Expo, TypeScript, Node.js, Supabase, and PostgreSQL, and I also enjoy C++, Java, and Python. Outside the digital world, I'm a national boxing champion, an important part of my background and identity."
+    "description": "I'm Afonso Lima, a Computer Engineering student at the Faculty of Engineering of the University of Porto. Right now my focus is on self-hosting and open source development, I run my own services on Linux and Docker on a home server, and that's where most of my free time goes. Before that I built HabitWar, a social competition app for iOS and Android that's still live, and I work on web and mobile with React Native, Swift, TypeScript, and PostgreSQL. I also write C, C++, Java, and Python. Outside the digital world, I'm a national boxing champion, an important part of my background and identity."
   }
 }

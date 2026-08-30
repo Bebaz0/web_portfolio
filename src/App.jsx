@@ -59,12 +59,13 @@ function App() {
                     <p>{t('profile.description')}</p>
                 </div>
             </section>
-            <section className={"spotlightWrapper reveal"}>
+            {/*Projects and spotlight commented since its too much*/}
+            {/*<section className={"spotlightWrapper reveal"}>
                 <Spotlight/>
             </section>
             <section className={"projectsWrapper reveal"}>
                 <Carousel/>
-            </section>
+            </section> */}
             <section className={"aboutWrapper reveal"}>
                 <AboutMe/>
             </section>
