@@ -2,9 +2,8 @@ import { useEffect } from 'react'
 import './App.css'
 import { useTranslation } from 'react-i18next';
 import LanguageToggle from "./components/lenguageSwitch/languageSwitch.jsx";
-import Carousel from "./components/Carousel/Carousel.jsx";
 import AboutMe from "./components/AboutMe/AboutMe.jsx";
-import Spotlight from "./components/Spotlight/Spotlight.jsx";
+import Contributions from "./components/Contributions/Contributions.jsx";
 
 function App() {
     const { t } = useTranslation();
@@ -59,15 +58,9 @@ function App() {
                     <p>{t('profile.description')}</p>
                 </div>
             </section>
-            {/*Projects and spotlight commented since its too much*/}
-            {/*<section className={"spotlightWrapper reveal"}>
-                <Spotlight/>
-            </section>
-            <section className={"projectsWrapper reveal"}>
-                <Carousel/>
-            </section> */}
             <section className={"aboutWrapper reveal"}>
                 <AboutMe/>
+                <Contributions/>
             </section>
         </>
     )

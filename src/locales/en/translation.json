@@ -62,5 +62,13 @@
   "about": {
     "title": "About Me",
     "description": "I'm Afonso Lima, a Computer Engineering student at the Faculty of Engineering of the University of Porto. Right now my focus is on self-hosting and open source development, I run my own services on Linux and Docker on a home server, and that's where most of my free time goes. Before that I built HabitWar, a social competition app for iOS and Android that's still live, and I work on web and mobile with React Native, Swift, TypeScript, and PostgreSQL. I also write C, C++, Java, and Python. Outside the digital world, I'm a national boxing champion, an important part of my background and identity."
+  },
+  "contributions": {
+    "total": "{{count}} contributions in the last year",
+    "less": "Less",
+    "more": "More",
+    "day_one": "{{count}} contribution on {{date}}",
+    "day_other": "{{count}} contributions on {{date}}",
+    "day_zero": "No contributions on {{date}}"
   }
 }
