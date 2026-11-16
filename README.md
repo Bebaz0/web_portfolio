@@ -30,6 +30,24 @@ Short description of the purpose of this website:
 
 ---
 
+## Hosting
+
+The site is live at [afonsolima.dev](https://afonsolima.dev), self-hosted on my homelab.
+
+- **Image:** a multi-stage Docker build. Node 22 builds the Vite bundle and nginx 1.30 serves the static files.
+- **Registry:** pushing a `v*.*.*` tag runs a GitHub Actions workflow that publishes `ghcr.io/bebaz0/web_portfolio` tagged with that version.
+- **Server:** the container runs with Docker on my homelab.
+- **Access:** a Cloudflare Tunnel connects the domain to the container. TLS ends at Cloudflare and no inbound ports are exposed to the internet.
+
+To run the same image locally:
+
+```bash
+docker build -t web_portfolio .
+docker run -p 8080:80 web_portfolio
+```
+
+---
+
 ## Installation
 
 ```bash
