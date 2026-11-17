@@ -12,34 +12,34 @@
     "list": {
       "homelab": {
         "title": "HomeLab",
-        "description": "The Linux box under my desk. It runs 19 self hosted services that my family and I use every day, from passwords and shopping lists to fitness tracking and a retro game library.",
+        "description": "The Linux box under my desk, running 19 self hosted services my family uses every day: passwords, shopping lists, fitness tracking and retro games.",
         "bullets": [
-          "Every service is a small Docker Compose stack behind a single Caddy reverse proxy",
-          "No port forwarding. Local DNS at home, Tailscale everywhere else",
-          "Runs things I wrote myself: a bot that reviews my GitHub pull requests with static analysis, and another that answers League invites in my friends' group chat",
-          "This website is served from it through a Cloudflare Tunnel"
+          "Docker Compose stacks behind a single Caddy proxy",
+          "No port forwarding: local DNS at home, Tailscale outside",
+          "Runs my own bots: a GitHub PR reviewer and a League invite responder",
+          "Serves this site through a Cloudflare Tunnel"
         ],
         "alt": "HomeLab dashboard showing the status of every service"
       },
       "homelab-status": {
         "title": "Homelab Status",
-        "description": "Live status of my home server, served from the edge. A collector on the server pushes a heartbeat every 30 seconds to a Cloudflare Worker, which stores it in D1 and serves it as JSON for this site and as an SVG card for my GitHub profile.",
+        "description": "Live status of my home server. A collector pushes a heartbeat every 30 seconds to a Cloudflare Worker, which serves JSON to this site and an SVG card to my GitHub profile.",
         "bullets": [
-          "Push instead of pull. Nothing in the homelab is exposed, the collector only sends HTTPS requests out with a bearer token",
-          "Failures are detected by silence. After 180 seconds without a heartbeat the server counts as offline, and the Worker keeps answering with offline since HH:MM",
-          "D1 keeps the latest snapshot, the minutes with a heartbeat per day for availability, and hourly CPU and RAM averages for the 24 hour chart. A daily cron clears old rows",
-          "GitHub does not run JavaScript in a README, so the profile card is an SVG drawn by the Worker",
-          "Fits the free tier with room to spare: about 2,880 requests a day, and an ingest less than 15 seconds after the previous one gets a 429"
+          "Push, not pull: nothing in the homelab is exposed",
+          "Offline after 180 seconds of silence",
+          "D1 stores snapshots, daily uptime and hourly CPU/RAM, pruned by a daily cron",
+          "SVG card, since READMEs can't run JavaScript",
+          "Free tier with room to spare: about 2,880 requests a day, rate limited with 429"
         ],
         "alt": "Architecture of homelab status: the collector on arroz pushes to a Cloudflare Worker with D1, which serves this site and the GitHub README"
       },
       "habitwar": {
         "title": "HabitWar",
-        "description": "HabitWar turns habit building into a multiplayer competition. Challenge your friends, keep your streaks alive and climb the leaderboard.",
+        "description": "Habit building as a multiplayer competition. Challenge friends, keep your streaks and climb the leaderboard.",
         "bullets": [
-          "Live on iOS and Android, with paying customers on both platforms",
-          "Habits are proven with photos, timers and location",
-          "Full product: auth, subscriptions, push notifications and home screen widgets"
+          "Live on iOS and Android with paying users",
+          "Habits proven by photo, timer or location",
+          "Auth, subscriptions, push notifications and widgets"
         ],
         "alt": "HabitWar landing page"
       },
@@ -47,18 +47,18 @@
         "title": "Porto Box Cup",
         "description": "The official platform of Porto Box Cup, the largest boxing tournament in the world.",
         "bullets": [
-          "Public event site, a team dashboard for registrations and an admin dashboard that runs the entire event",
-          "348 registered teams and more than 1,200 athletes"
+          "Event site, team registration dashboard and admin panel",
+          "348 teams and 1,200+ athletes"
         ],
         "alt": "Porto Box Cup homepage"
       },
       "minix": {
         "title": "Minix Boxing",
-        "description": "A two player boxing game for MINIX, written in C with a team of four for Computer Laboratory at FEUP. It runs on device drivers we wrote ourselves: keyboard, mouse, video card, timer and real time clock.",
+        "description": "Two player boxing game for MINIX, written in C by a team of four at FEUP, on our own keyboard, mouse, video, timer and RTC drivers.",
         "bullets": [
-          "One player fights on the keyboard, hitting Q W E R prompts as they appear. The other fights on the mouse, clicking bubbles before they close",
-          "Perfect timing fills a combo bar, a miss costs you HP, and the timing windows shrink every round",
-          "Character select, pause menu and a leaderboard, drawn at 1024x768 in 16 bit colour"
+          "Keyboard player hits Q W E R prompts, mouse player pops bubbles",
+          "Combos, HP loss on misses, shorter timing windows every round",
+          "Character select, pause menu and leaderboard at 1024x768"
         ],
         "alt": "Minix Boxing title screen art"
       }

@@ -12,34 +12,34 @@
     "list": {
       "homelab": {
         "title": "HomeLab",
-        "description": "A máquina Linux debaixo da minha secretária. Corre 19 serviços self hosted que eu e a minha família usamos todos os dias, de passwords e listas de compras a registo de treino e uma biblioteca de jogos retro.",
+        "description": "A máquina Linux debaixo da minha secretária, com 19 serviços self hosted que a minha família usa todos os dias: passwords, listas de compras, treino e jogos retro.",
         "bullets": [
-          "Cada serviço é uma pequena stack Docker Compose atrás de um único reverse proxy Caddy",
-          "Sem port forwarding. DNS local em casa, Tailscale em todo o lado",
-          "Corre coisas que eu próprio escrevi: um bot que revê os meus pull requests no GitHub com análise estática, e outro que responde a convites de League no grupo dos meus amigos",
-          "Este site é servido a partir dela através de um Cloudflare Tunnel"
+          "Stacks Docker Compose atrás de um único proxy Caddy",
+          "Sem port forwarding: DNS local em casa, Tailscale fora",
+          "Corre bots meus: um revisor de PRs no GitHub e um que responde a convites de League",
+          "Serve este site através de um Cloudflare Tunnel"
         ],
         "alt": "Dashboard do HomeLab com o estado de todos os serviços"
       },
       "homelab-status": {
         "title": "Homelab Status",
-        "description": "O estado ao vivo do meu servidor caseiro, servido a partir da edge. Um coletor no servidor envia um heartbeat a cada 30 segundos para um Cloudflare Worker, que o guarda em D1 e o serve em JSON para este site e como card SVG para o meu perfil do GitHub.",
+        "description": "O estado ao vivo do meu servidor caseiro. Um coletor envia um heartbeat a cada 30 segundos para um Cloudflare Worker, que serve JSON para este site e um card SVG para o meu perfil do GitHub.",
         "bullets": [
-          "Push em vez de pull. Nada no homelab fica exposto, o coletor só faz pedidos HTTPS de saída com um bearer token",
-          "As falhas detetam-se pelo silêncio. Ao fim de 180 segundos sem heartbeat o servidor passa a offline, e o Worker continua a responder com offline desde HH:MM",
-          "O D1 guarda o último snapshot, os minutos com heartbeat por dia para a disponibilidade, e médias horárias de CPU e RAM para o gráfico de 24 horas. Um cron diário apaga as linhas antigas",
-          "O GitHub não corre JavaScript num README, por isso o card do perfil é um SVG desenhado pelo Worker",
-          "Cabe com folga no plano gratuito: cerca de 2880 pedidos por dia, e um ingest a menos de 15 segundos do anterior recebe um 429"
+          "Push em vez de pull: nada no homelab fica exposto",
+          "Offline ao fim de 180 segundos de silêncio",
+          "O D1 guarda snapshots, uptime diário e CPU/RAM por hora, limpos por um cron diário",
+          "Card em SVG, porque um README não corre JavaScript",
+          "Cabe com folga no plano gratuito: cerca de 2880 pedidos por dia, com rate limit via 429"
         ],
         "alt": "Arquitetura do homelab status: o coletor no arroz envia para um Cloudflare Worker com D1, que serve este site e o README do GitHub"
       },
       "habitwar": {
         "title": "HabitWar",
-        "description": "O HabitWar transforma a criação de hábitos numa competição multijogador. Desafia os teus amigos, mantém as streaks vivas e sobe na leaderboard.",
+        "description": "Criar hábitos como competição multijogador. Desafia amigos, mantém as streaks e sobe na leaderboard.",
         "bullets": [
-          "Disponível em iOS e Android, com clientes pagantes nas duas plataformas",
-          "Os hábitos são provados com fotos, timers e localização",
-          "Produto completo: autenticação, subscrições, notificações push e widgets"
+          "Disponível em iOS e Android, com clientes pagantes",
+          "Hábitos provados com foto, timer ou localização",
+          "Autenticação, subscrições, notificações push e widgets"
         ],
         "alt": "Landing page do HabitWar"
       },
@@ -47,18 +47,18 @@
         "title": "Porto Box Cup",
         "description": "A plataforma oficial do Porto Box Cup, o maior torneio de boxe do mundo.",
         "bullets": [
-          "Site público do evento, um dashboard de equipas para inscrições e um dashboard de administração que gere o evento inteiro",
-          "348 equipas inscritas e mais de 1200 atletas"
+          "Site do evento, dashboard de inscrições para equipas e painel de administração",
+          "348 equipas e mais de 1200 atletas"
         ],
         "alt": "Página inicial do Porto Box Cup"
       },
       "minix": {
         "title": "Minix Boxing",
-        "description": "Um jogo de boxe para dois jogadores em MINIX, escrito em C com uma equipa de quatro para Laboratório de Computadores na FEUP. Corre sobre device drivers escritos por nós: teclado, rato, placa gráfica, timer e relógio de tempo real.",
+        "description": "Jogo de boxe para dois jogadores em MINIX, escrito em C por uma equipa de quatro na FEUP, sobre drivers nossos de teclado, rato, vídeo, timer e RTC.",
         "bullets": [
-          "Um jogador luta no teclado, acertando nas teclas Q W E R à medida que aparecem. O outro luta no rato, clicando em bolhas antes que fechem",
-          "O timing perfeito enche a barra de combo, uma falha custa HP, e as janelas de tempo encolhem a cada ronda",
-          "Seleção de personagem, menu de pausa e leaderboard, desenhados a 1024x768 com cor de 16 bits"
+          "Um jogador acerta nas teclas Q W E R, o outro rebenta bolhas com o rato",
+          "Combos, perdes HP quando falhas, janelas de tempo mais curtas a cada ronda",
+          "Seleção de personagem, menu de pausa e leaderboard a 1024x768"
         ],
         "alt": "Arte do ecrã inicial do Minix Boxing"
       }

@@ -122,23 +122,20 @@
     color: var(--color-text);
 }
 
+/* Chill gets hard to read this small, so the body text is mono */
 .projPanel p,
 .projPanel li {
     max-width: none;
     margin: 0;
-    font-size: 0.95rem;
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 0.85rem;
     line-height: 1.7;
     color: var(--color-text);
 }
 
-.projPanel .projPrompt,
 .projPanel .projStack {
-    font-size: 0.85rem;
+    font-size: 0.78rem;
     color: var(--color-text-muted);
-}
-
-.projPanel .projPrompt {
-    margin-bottom: 1rem;
 }
 
 .projPanel ul {
@@ -320,6 +317,45 @@
 
     .projPanel p,
     .projPanel li {
-        font-size: 0.875rem;
+        font-size: 0.8rem;
+    }
+
+    /* Phone instead of terminal: bezel, Dynamic Island, home indicator */
+    .projWindow {
+        position: relative;
+        border: 10px solid var(--color-text);
+        border-radius: 44px;
+        padding-bottom: 1.25rem;
+    }
+
+    .projBar {
+        justify-content: center;
+        padding: 0.6rem 0 0.25rem;
+        border-bottom: 0;
+    }
+
+    .projBar span,
+    .projBar b {
+        display: none;
+    }
+
+    .projBar::before {
+        content: "";
+        width: 96px;
+        height: 26px;
+        border-radius: 13px;
+        background: var(--color-text);
+    }
+
+    .projWindow::after {
+        content: "";
+        position: absolute;
+        bottom: 0.5rem;
+        left: 50%;
+        width: 110px;
+        height: 5px;
+        border-radius: 3px;
+        background: var(--color-text-muted);
+        translate: -50% 0;
     }
 }

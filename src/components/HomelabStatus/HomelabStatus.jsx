@@ -215,7 +215,6 @@ function HomelabStatus() {
 
     return (
         <section className={"hs"} id={"homelab-status"} ref={rootRef} aria-label={t('homelabStatus.region')}>
-            <p className={"projPrompt"}>$ curl status.afonsolima.dev/api/status</p>
             {body}
             {tip && (
                 <div className={"contribTip"} role={"tooltip"} style={{ left: tip.x, top: tip.y, '--shift': `${tip.shift}%` }}>

@@ -7,7 +7,7 @@ import HomelabStatus from "../HomelabStatus/HomelabStatus.jsx";
 const PROJECTS = [
     {
         id: 'homelab',
-        stack: ['Docker', 'Caddy', 'Tailscale', 'Cloudflare Tunnel', 'AdGuard Home', 'Python', 'Playwright'],
+        stack: ['Docker', 'Caddy', 'Tailscale', 'Cloudflare Tunnel', 'AdGuard Home', 'Python'],
         links: [['github.com/Bebaz0/HomeLab', 'https://github.com/Bebaz0/HomeLab']],
     },
     {
@@ -107,7 +107,6 @@ function Projects() {
                                 className={i === active ? "projPanel is-active" : "projPanel"}
                                 inert={zoomed}
                             >
-                                <p className={"projPrompt"}>$ cat {p.id}.md</p>
                                 <h3>{t(`projects.list.${p.id}.title`)}</h3>
                                 <p>{t(`projects.list.${p.id}.description`)}</p>
                                 <ul>
