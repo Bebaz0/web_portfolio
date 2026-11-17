@@ -3,59 +3,51 @@
     "name": "Afonso Lima",
     "description": "Computer Engineering student in Portugal. I explore the many different fields of software."
   },
-  "todo": {
-    "title": "Portfolio ToDo",
-    "tasks": {
-      "tryTodo": "Try the to-do list",
-      "switchLanguage": "Switch the website language",
-      "exploreProjects": "Explore my projects",
-      "visitSocial": "Visit my social media",
-      "readAbout": "Read the About Me section",
-      "sendMessage": "Send me a message",
-      "goTop": "Go back to the top"
-    }
-  },
-  "spotlight": {
-    "label": "Currently building",
-    "title": "HabitWar",
-    "description": "A gamified habit tracker where you battle friends: keep your streaks alive, climb the leaderboard, and prove your habits with photos, timers, and location. Built with React Native and Expo on a Supabase backend, with subscriptions, push notifications, and home screen widgets.",
-    "cta": "Visit habitwar.app"
-  },
   "projects": {
-    "title": "My Work",
-    "noImg": "No image for this Project",
-    "visit": "Visit project",
-    "prev": "Previous project",
-    "next": "Next project",
-    "goToSlide": "Go to project",
-    "roulette": {
-      "button": "Pick a random project",
-      "spinning": "Spinning..."
-    },
+    "title": "Projects",
+    "zoom": "Zoom image",
+    "zoomHint": "Click to zoom",
+    "zoomClose": "Close image",
     "list": {
-      "HabitWar": {
+      "homelab": {
+        "title": "HomeLab",
+        "description": "The Linux box under my desk. It runs 19 self hosted services that my family and I use every day, from passwords and shopping lists to fitness tracking and a retro game library.",
+        "bullets": [
+          "Every service is a small Docker Compose stack behind a single Caddy reverse proxy",
+          "No port forwarding. Local DNS at home, Tailscale everywhere else",
+          "Runs things I wrote myself: a bot that reviews my GitHub pull requests with static analysis, and another that answers League invites in my friends' group chat",
+          "This website is served from it through a Cloudflare Tunnel"
+        ],
+        "alt": "HomeLab dashboard showing the status of every service"
+      },
+      "habitwar": {
         "title": "HabitWar",
-        "description": "Gamified habit tracking app for iOS and Android. Battle friends, keep streaks, and verify habits with photo, timer, and location proof. Full product: auth, subscriptions, widgets, and analytics."
+        "description": "HabitWar turns habit building into a multiplayer competition. Challenge your friends, keep your streaks alive and climb the leaderboard.",
+        "bullets": [
+          "Live on iOS and Android, with paying customers on both platforms",
+          "Habits are proven with photos, timers and location",
+          "Full product: auth, subscriptions, push notifications and home screen widgets"
+        ],
+        "alt": "HabitWar landing page"
       },
-      "PortoBox": {
+      "portobox": {
         "title": "Porto Box Cup",
-        "description": "Website for one of Europe's biggest annual boxing events: registrations, event info, team pages, and statistics, all backed by a real database."
+        "description": "The official platform of Porto Box Cup, the largest boxing tournament in the world.",
+        "bullets": [
+          "Public event site, a team dashboard for registrations and an admin dashboard that runs the entire event",
+          "348 registered teams and more than 1,200 athletes"
+        ],
+        "alt": "Porto Box Cup homepage"
       },
-      "ReservationApp": {
-        "title": "Reservation Management",
-        "description": "Reservation management for businesses: create, cancel, and view reservations; manage bookings and schedules."
-      },
-      "Photography": {
-        "title": "Photography Website",
-        "description": "Professional photography website showcasing the work of Maria Bragança; specializing in newborn, family, and maternity sessions."
-      },
-      "mm": {
-        "title": "Custom Watches Store",
-        "description": "Online store for a custom watches brand based in Portugal, with a unique and fully responsive design."
-      },
-      "Dean": {
-        "title": "Dean Rök",
-        "description": "Landing page for the artist Dean Rök with modern design and smooth animations; showcases albums, music, and social media."
+      "minix": {
+        "title": "Minix Boxing",
+        "description": "A two player boxing game for MINIX, written in C with a team of four for Computer Laboratory at FEUP. It runs on device drivers we wrote ourselves: keyboard, mouse, video card, timer and real time clock.",
+        "bullets": [
+          "One player fights on the keyboard, hitting Q W E R prompts as they appear. The other fights on the mouse, clicking bubbles before they close",
+          "Perfect timing fills a combo bar, a miss costs you HP, and the timing windows shrink every round",
+          "Character select, pause menu and a leaderboard, drawn at 1024x768 in 16 bit colour"
+        ],
+        "alt": "Minix Boxing title screen art"
       }
     }
   },

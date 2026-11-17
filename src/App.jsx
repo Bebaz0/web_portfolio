@@ -3,6 +3,7 @@ import './App.css'
 import { useTranslation } from 'react-i18next';
 import LanguageToggle from "./components/lenguageSwitch/languageSwitch.jsx";
 import AboutMe from "./components/AboutMe/AboutMe.jsx";
+import Projects from "./components/Projects/Projects.jsx";
 import Contributions from "./components/Contributions/Contributions.jsx";
 
 function App() {
@@ -65,6 +66,9 @@ function App() {
                     </div>
                     <p>{t('profile.description')}</p>
                 </div>
+            </section>
+            <section className={"projectsWrapper reveal"}>
+                <Projects/>
             </section>
             <section className={"aboutWrapper reveal"}>
                 <AboutMe/>

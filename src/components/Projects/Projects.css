@@ -1,0 +1,322 @@
+.projects {
+    width: 100%;
+    text-align: left;
+}
+
+.projects h2 {
+    color: var(--color-Pine);
+    font-weight: 600;
+    font-size: 2.5rem;
+    margin: 0 0 2rem;
+    text-align: center;
+}
+
+.projLayout {
+    display: grid;
+    grid-template-columns: minmax(180px, 240px) minmax(0, 1fr);
+    gap: 1.5rem;
+    align-items: start;
+}
+
+/* Project list */
+.projTabs {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.projTabs button {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.85rem 1.1rem;
+    border: 1px solid transparent;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.5);
+    color: var(--color-text-muted);
+    font: inherit;
+    font-size: 0.95rem;
+    text-align: left;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.projTabs button::before {
+    content: "";
+    flex: none;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: currentColor;
+}
+
+.projTabs button:hover {
+    color: var(--color-text);
+}
+
+.projTabs button[aria-selected="true"] {
+    background: #fff;
+    border-color: var(--grid-color);
+    color: var(--color-Pine);
+    font-weight: 700;
+}
+
+.projTabs button:focus-visible {
+    outline: 2px solid var(--color-Pine);
+    outline-offset: 2px;
+}
+
+/* Terminal window */
+.projWindow {
+    min-width: 0;
+    overflow: hidden;
+    background: #fff;
+    border: 1px solid var(--grid-color);
+    border-radius: var(--glass-radius);
+}
+
+.projBar {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0.7rem 1rem;
+    border-bottom: 1px solid var(--grid-color);
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+}
+
+.projBar span {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--grid-color);
+}
+
+.projBar b {
+    margin-left: 0.5rem;
+    font-weight: 400;
+}
+
+.projPanels {
+    position: relative;
+    display: grid;
+}
+
+.projPanel {
+    grid-area: 1 / 1;
+    min-width: 0;
+    padding: 1.5rem;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.projPanel.is-active {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.25s ease;
+}
+
+.projPanel h3 {
+    margin: 0 0 0.75rem;
+    font-size: 1.15rem;
+    color: var(--color-text);
+}
+
+.projPanel p,
+.projPanel li {
+    max-width: none;
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--color-text);
+}
+
+.projPanel .projPrompt,
+.projPanel .projStack {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+}
+
+.projPanel .projPrompt {
+    margin-bottom: 1rem;
+}
+
+.projPanel ul {
+    margin: 0.75rem 0 1rem;
+    padding-left: 1.2rem;
+}
+
+.projPanel li::marker {
+    color: var(--color-Pine);
+}
+
+.projLinks {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 1.25rem;
+    margin-top: 0.5rem;
+}
+
+.projLinks a {
+    color: var(--color-Pine);
+    font-weight: 700;
+    overflow-wrap: anywhere;
+}
+
+/* Thumbnail is small on purpose, so the whole window fits on screen. Click to zoom */
+.projShot {
+    position: relative;
+    max-width: 360px;
+    margin-top: 1.25rem;
+}
+
+.projZoom {
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    border-radius: 10px;
+    background: none;
+    cursor: zoom-in;
+}
+
+.projZoom img {
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--grid-color);
+    border-radius: 10px;
+}
+
+/* Three scribbled "click to zoom" notes to the right of the thumbnail.
+   Off palette colours on purpose, so they read as doodles on top of the UI */
+.projHints span {
+    position: absolute;
+    left: calc(100% + 14px);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.95rem;
+    white-space: nowrap;
+    transform-origin: left center;
+    pointer-events: none;
+}
+
+.projHints svg {
+    flex: none;
+}
+
+.projHints span:nth-child(1) {
+    top: 4%;
+    color: #e8368f;
+    rotate: -9deg;
+}
+
+.projHints span:nth-child(2) {
+    top: 40%;
+    left: calc(100% + 44px);
+    color: #f08a00;
+    rotate: 5deg;
+}
+
+.projHints span:nth-child(2) svg {
+    scale: 1 -1;
+}
+
+.projHints span:nth-child(3) {
+    top: 76%;
+    left: calc(100% + 22px);
+    color: #3b6cf6;
+    rotate: -4deg;
+}
+
+/* Zoomed: the screenshot covers the whole window body */
+.projZoomed {
+    position: absolute;
+    inset: 0;
+    padding: 1.5rem;
+    border: 0;
+    background: #fff;
+    cursor: zoom-out;
+}
+
+.projZoomed img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.projZoom:focus-visible,
+.projZoomed:focus-visible {
+    outline: 2px solid var(--color-Pine);
+    outline-offset: -2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .projPanel.is-active,
+    .projTabs button {
+        transition: none;
+    }
+}
+
+/* Not enough room beside the thumbnail */
+@media (max-width: 1024px) {
+    .projHints {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .projects {
+        padding-inline: 1rem;
+    }
+
+    .projects h2 {
+        font-size: 1.8rem;
+        margin-bottom: 1.25rem;
+    }
+
+    .projLayout {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 0.75rem;
+    }
+
+    /* The list turns into a row you can swipe; padding keeps the focus ring from clipping */
+    .projTabs {
+        flex-direction: row;
+        gap: 0.5rem;
+        padding: 4px;
+        margin: -4px;
+        overflow-x: auto;
+        scrollbar-width: none;
+    }
+
+    .projTabs::-webkit-scrollbar {
+        display: none;
+    }
+
+    .projTabs button {
+        flex: none;
+        padding: 0.65rem 0.9rem;
+        font-size: 0.85rem;
+        white-space: nowrap;
+    }
+
+    .projPanel,
+    .projZoomed {
+        padding: 1rem;
+    }
+
+    /* The window is no wider than the thumbnail here, so zooming gains nothing */
+    .projZoom {
+        pointer-events: none;
+    }
+
+    .projZoomed img {
+        object-position: top;
+    }
+
+    .projPanel p,
+    .projPanel li {
+        font-size: 0.875rem;
+    }
+}

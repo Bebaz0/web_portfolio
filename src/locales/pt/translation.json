@@ -3,59 +3,51 @@
     "name": "Afonso Lima",
     "description": "Estudante de Engenharia Informática em Portugal. Exploro os diversos campos de software."
   },
-  "todo": {
-    "title": "Tarefas do Portfólio",
-    "tasks": {
-      "tryTodo": "Experimentar a lista de tarefas",
-      "switchLanguage": "Mudar o idioma do website",
-      "exploreProjects": "Explorar os meus projetos",
-      "visitSocial": "Visitar as minhas redes sociais",
-      "readAbout": "Ler a secção Sobre Mim",
-      "sendMessage": "Enviar-me uma mensagem",
-      "goTop": "Voltar ao topo"
-    }
-  },
-  "spotlight": {
-    "label": "Em construção",
-    "title": "HabitWar",
-    "description": "Um habit tracker gamificado onde combates contra os teus amigos: mantém as streaks vivas, sobe na leaderboard e prova os teus hábitos com fotos, timers e localização. Construído com React Native e Expo sobre um backend Supabase, com subscrições, notificações push e widgets.",
-    "cta": "Visitar habitwar.app"
-  },
   "projects": {
-    "title": "O meu trabalho",
-    "noImg": "Projeto sem imagem",
-    "visit": "Visitar projeto",
-    "prev": "Projeto anterior",
-    "next": "Projeto seguinte",
-    "goToSlide": "Ir para o projeto",
-    "roulette": {
-      "button": "Sorteia um Projeto",
-      "spinning": "A sortear..."
-    },
+    "title": "Projetos",
+    "zoom": "Ampliar imagem",
+    "zoomHint": "Clica para ampliar",
+    "zoomClose": "Fechar imagem",
     "list": {
-      "HabitWar": {
+      "homelab": {
+        "title": "HomeLab",
+        "description": "A máquina Linux debaixo da minha secretária. Corre 19 serviços self hosted que eu e a minha família usamos todos os dias, de passwords e listas de compras a registo de treino e uma biblioteca de jogos retro.",
+        "bullets": [
+          "Cada serviço é uma pequena stack Docker Compose atrás de um único reverse proxy Caddy",
+          "Sem port forwarding. DNS local em casa, Tailscale em todo o lado",
+          "Corre coisas que eu próprio escrevi: um bot que revê os meus pull requests no GitHub com análise estática, e outro que responde a convites de League no grupo dos meus amigos",
+          "Este site é servido a partir dela através de um Cloudflare Tunnel"
+        ],
+        "alt": "Dashboard do HomeLab com o estado de todos os serviços"
+      },
+      "habitwar": {
         "title": "HabitWar",
-        "description": "App gamificada de hábitos para iOS e Android. Combate contra amigos, mantém streaks e prova hábitos com foto, timer e localização. Produto completo: auth, subscrições, widgets e analytics."
+        "description": "O HabitWar transforma a criação de hábitos numa competição multijogador. Desafia os teus amigos, mantém as streaks vivas e sobe na leaderboard.",
+        "bullets": [
+          "Disponível em iOS e Android, com clientes pagantes nas duas plataformas",
+          "Os hábitos são provados com fotos, timers e localização",
+          "Produto completo: autenticação, subscrições, notificações push e widgets"
+        ],
+        "alt": "Landing page do HabitWar"
       },
-      "PortoBox": {
+      "portobox": {
         "title": "Porto Box Cup",
-        "description": "Site de um dos maiores eventos anuais de boxe da Europa: registos, informações, páginas de equipas e estatísticas, tudo sobre uma base de dados real."
+        "description": "A plataforma oficial do Porto Box Cup, o maior torneio de boxe do mundo.",
+        "bullets": [
+          "Site público do evento, um dashboard de equipas para inscrições e um dashboard de administração que gere o evento inteiro",
+          "348 equipas inscritas e mais de 1200 atletas"
+        ],
+        "alt": "Página inicial do Porto Box Cup"
       },
-      "ReservationApp": {
-        "title": "Gestão de Reservas",
-        "description": "Gestão de reservas para empresas: criar, cancelar e consultar reservas; gerir marcações e horários."
-      },
-      "Photography": {
-        "title": "Artista Fotográfica",
-        "description": "Site Maria Bragança Fotografia apresentando o trabalho de Maria Bragança; especializada em recém-nascidos, família e maternidade."
-      },
-      "mm": {
-        "title": "Loja de Relógios Customizados",
-        "description": "Loja online de uma marca de relógios customizados sediada em Portugal, com um design único e totalmente responsivo."
-      },
-      "Dean": {
-        "title": "Dean Rök",
-        "description": "Landing page para o artista Dean Rök, com design moderno e animações fluidas; apresenta álbuns, músicas e redes sociais."
+      "minix": {
+        "title": "Minix Boxing",
+        "description": "Um jogo de boxe para dois jogadores em MINIX, escrito em C com uma equipa de quatro para Laboratório de Computadores na FEUP. Corre sobre device drivers escritos por nós: teclado, rato, placa gráfica, timer e relógio de tempo real.",
+        "bullets": [
+          "Um jogador luta no teclado, acertando nas teclas Q W E R à medida que aparecem. O outro luta no rato, clicando em bolhas antes que fechem",
+          "O timing perfeito enche a barra de combo, uma falha custa HP, e as janelas de tempo encolhem a cada ronda",
+          "Seleção de personagem, menu de pausa e leaderboard, desenhados a 1024x768 com cor de 16 bits"
+        ],
+        "alt": "Arte do ecrã inicial do Minix Boxing"
       }
     }
   },
