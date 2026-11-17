@@ -79,19 +79,12 @@
     "containers": "Containers",
     "availability": "Availability, 30 days",
     "disk": "Disk",
-    "cores_one": "{{count}} core",
-    "cores_other": "{{count}} cores",
-    "strip": "Availability per day, last 30 days",
     "stripLabel": "Availability over the last 30 days: {{value}}",
     "noData": "no data",
     "chart": "CPU and RAM, last 24 hours",
     "chartLabel": "CPU and RAM usage over the last 24 hours. Latest: CPU {{cpu}}, RAM {{ram}}",
     "ago24": "24 h ago",
-    "now": "now",
-    "services": "Services",
-    "up": "Up",
-    "down": "Down",
-    "degraded": "Degraded"
+    "now": "now"
   },
   "about": {
     "title": "About Me",

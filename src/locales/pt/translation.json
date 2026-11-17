@@ -79,19 +79,12 @@
     "containers": "Contentores",
     "availability": "Disponibilidade, 30 dias",
     "disk": "Disco",
-    "cores_one": "{{count}} núcleo",
-    "cores_other": "{{count}} núcleos",
-    "strip": "Disponibilidade por dia, últimos 30 dias",
     "stripLabel": "Disponibilidade nos últimos 30 dias: {{value}}",
     "noData": "sem dados",
     "chart": "CPU e RAM, últimas 24 horas",
     "chartLabel": "Utilização de CPU e RAM nas últimas 24 horas. Agora: CPU {{cpu}}, RAM {{ram}}",
     "ago24": "há 24 h",
-    "now": "agora",
-    "services": "Serviços",
-    "up": "Operacional",
-    "down": "Em baixo",
-    "degraded": "Degradado"
+    "now": "agora"
   },
   "about": {
     "title": "Sobre Mim",

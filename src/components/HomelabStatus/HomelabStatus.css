@@ -1,9 +1,8 @@
 .hs {
     --hs-down: #c0503a;
-    --hs-degraded: #d08a1e;
 
     position: relative;
-    margin-top: 2rem;
+    margin-top: 1.5rem;
 }
 
 .hs .projPrompt {
@@ -12,15 +11,14 @@
 
 .hsCard {
     display: grid;
-    gap: 1.25rem;
-    padding: 1.25rem;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
     border: 1px solid var(--grid-color);
     border-radius: 12px;
     background: #fff;
 }
 
 .hs p,
-.hs li,
 .hs dd {
     margin: 0;
     font-size: 0.95rem;
@@ -29,15 +27,20 @@
 
 .hs .hsMuted,
 .hs h4,
-.hs dt,
-.hs small {
+.hs dt {
     color: var(--color-text-muted);
     font-size: 0.85rem;
     font-weight: 400;
 }
 
 .hs h4 {
-    margin: 0 0 0.5rem;
+    margin: 0 0 0.4rem;
+}
+
+.hs h4 b {
+    margin-left: 0.25rem;
+    color: var(--color-text);
+    font-size: 0.95rem;
 }
 
 .hs .hsNote {
@@ -69,22 +72,19 @@
     background: var(--color-text-muted);
 }
 
-[data-status="online"] > .hsDot,
-[data-status="up"] > .hsDot { background: var(--color-Pine); }
-[data-status="offline"] > .hsDot,
-[data-status="down"] > .hsDot { background: var(--hs-down); }
-[data-status="degraded"] > .hsDot { background: var(--hs-degraded); }
+[data-status="online"] > .hsDot { background: var(--color-Pine); }
+[data-status="offline"] > .hsDot { background: var(--hs-down); }
 
 .hsGrid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 1.25rem 2rem;
+    align-items: start;
+    gap: 1rem 2rem;
 }
 
 .hsCol {
     display: grid;
-    align-content: start;
-    gap: 1.25rem;
+    gap: 0.75rem;
     min-width: 0;
 }
 
@@ -104,7 +104,7 @@
 /* Usage bars */
 .hsMeters {
     display: grid;
-    gap: 0.75rem;
+    gap: 0.6rem;
 }
 
 .hsMeter {
@@ -113,10 +113,6 @@
     align-items: center;
     column-gap: 0.75rem;
     font-size: 0.9rem;
-}
-
-.hsMeter small {
-    grid-column: 2 / -1;
 }
 
 .hsValue {
@@ -161,10 +157,15 @@
 .hsStrip [data-level="3"] { background: var(--color-Pine); }
 
 /* 24 h chart */
+/* Fixed height, stretched to the width; strokes keep their thickness */
 .hsChart {
     width: 100%;
-    height: auto;
+    height: 110px;
     overflow: visible;
+}
+
+.hsChart * {
+    vector-effect: non-scaling-stroke;
 }
 
 .hsChart line {
@@ -179,11 +180,8 @@
     stroke-linecap: round;
 }
 
-.hsChart .hsCpu { stroke: var(--color-Pine); fill: var(--color-Pine); }
-.hsChart .hsRam { stroke: var(--color-sage); fill: var(--color-sage); stroke-dasharray: 5 4; }
-.hsChart circle.hsRam { stroke-dasharray: none; }
-.hsChart polyline.hsCpu,
-.hsChart polyline.hsRam { fill: none; }
+.hsChart .hsCpu { stroke: var(--color-Pine); }
+.hsChart .hsRam { stroke: var(--color-sage); stroke-dasharray: 5 4; }
 
 .hsAxis {
     display: flex;
@@ -211,32 +209,6 @@
     border-top: 2px dashed var(--color-sage);
 }
 
-/* Services */
-.hs .hsServices {
-    display: grid;
-    gap: 0.4rem;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-.hsServices li {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 0 0.5rem;
-    white-space: nowrap;
-}
-
-.hsServices a {
-    color: var(--color-Pine);
-    font-weight: 700;
-}
-
-.hsServices .hsMuted {
-    margin-left: auto;
-}
-
 /* Skeleton */
 .hsLoading span {
     display: block;
@@ -257,16 +229,11 @@
 }
 
 @media (max-width: 768px) {
-    .hs {
-        margin-top: 1.5rem;
-    }
-
     .hsCard {
         padding: 1rem;
     }
 
     .hs p,
-    .hs li,
     .hs dd {
         font-size: 0.875rem;
     }

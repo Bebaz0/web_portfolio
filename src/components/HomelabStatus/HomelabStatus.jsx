@@ -5,11 +5,12 @@ import "./HomelabStatus.css"
 const API = 'https://status.afonsolima.dev/api/status';
 const POLL_MS = 60_000;
 const DAY_MS = 86_400_000;
+const MIN_CHART_POINTS = 6;  // hours; fewer than this is a dot, not a trend
 
 // Colour step for the 30 day strip; the tooltip carries the exact number
 const level = (a) => a == null ? 0 : a >= 0.99 ? 3 : a >= 0.9 ? 2 : 1;
 
-function Meter({ label, percent, detail, fmt }) {
+function Meter({ label, percent, fmt }) {
     return (
         <div className={"hsMeter"}>
             <span>{label}</span>
@@ -25,7 +26,6 @@ function Meter({ label, percent, detail, fmt }) {
                 <i style={{ width: `${Math.min(100, percent)}%` }}/>
             </div>
             <span className={"hsValue"}>{fmt.format(percent / 100)}</span>
-            {detail && <small>{detail}</small>}
         </div>
     );
 }
@@ -39,12 +39,11 @@ function Chart({ hourly, end }) {
     const series = [['cpu_percent', 'hsCpu'], ['memory_percent', 'hsRam']];
 
     return (
-        <svg className={"hsChart"} viewBox={`0 -4 ${W} ${H + 8}`} aria-hidden={"true"}>
+        <svg className={"hsChart"} viewBox={`0 -2 ${W} ${H + 4}`} preserveAspectRatio={"none"} aria-hidden={"true"}>
             {[0, H / 2, H].map((gy) => <line key={gy} x1={0} x2={W} y1={gy} y2={gy}/>)}
-            {series.map(([key, cls]) => hourly.length > 1
-                ? <polyline key={key} className={cls} points={hourly.map((h) => `${x(h)},${y(h[key])}`).join(' ')}/>
-                : hourly.map((h) => <circle key={key + h.hour} className={cls} cx={x(h)} cy={y(h[key])} r={3}/>)
-            )}
+            {series.map(([key, cls]) => (
+                <polyline key={key} className={cls} points={hourly.map((h) => `${x(h)},${y(h[key])}`).join(' ')}/>
+            ))}
         </svg>
     );
 }
@@ -81,7 +80,6 @@ function HomelabStatus() {
 
     const lang = i18n.language;
     const pct = new Intl.NumberFormat(lang, { style: 'percent', maximumFractionDigits: 1 });
-    const gb = new Intl.NumberFormat(lang, { style: 'unit', unit: 'gigabyte', maximumFractionDigits: 1 });
     const rel = new Intl.RelativeTimeFormat(lang, { numeric: 'auto' });
     const dayFmt = new Intl.DateTimeFormat(lang, { day: 'numeric', month: 'short', timeZone: 'UTC' });
     const timeFmt = new Intl.DateTimeFormat(lang, { hour: '2-digit', minute: '2-digit' });
@@ -116,7 +114,8 @@ function HomelabStatus() {
         const a30 = data.availability['30d'];
         const daily = data.history.daily;
         const hourly = data.history.hourly;
-        const last = hourly.at(-1);
+        const last = hourly.length >= MIN_CHART_POINTS && hourly.at(-1);
+        const a30Text = a30 == null ? t('homelabStatus.noData') : pct.format(a30);
 
         const ago = data.last_seen_seconds_ago == null ? null
             : data.last_seen_seconds_ago + Math.max(0, Math.round((now - fetchedAt) / 1000));
@@ -127,7 +126,6 @@ function HomelabStatus() {
         const state = data.status === 'offline' && data.offline_since
             ? t('homelabStatus.offlineSince', { time: timeFmt.format(new Date(data.offline_since)) })
             : t(`homelabStatus.${data.status}`);
-        const gbPair = (used, total) => `${gb.format(used / 1e9)} / ${gb.format(total / 1e9)}`;
 
         body = (
             <div className={"hsCard"}>
@@ -147,8 +145,8 @@ function HomelabStatus() {
 
                 <div className={"hsGrid"}>
                     <div className={"hsCol"}>
-                        <dl className={"hsStats"}>
-                            {m && (
+                        {m && (
+                            <dl className={"hsStats"}>
                                 <div>
                                     <dt>{t('homelabStatus.uptime')}</dt>
                                     <dd>{t('homelabStatus.uptimeValue', {
@@ -156,38 +154,19 @@ function HomelabStatus() {
                                         h: Math.floor(m.uptime_seconds % 86400 / 3600),
                                     })}</dd>
                                 </div>
-                            )}
-                            {m && (
                                 <div>
                                     <dt>{t('homelabStatus.containers')}</dt>
                                     <dd>{m.containers.running}/{m.containers.total}</dd>
                                 </div>
-                            )}
-                            <div>
-                                <dt>{t('homelabStatus.availability')}</dt>
-                                <dd>{a30 == null ? t('homelabStatus.noData') : pct.format(a30)}</dd>
-                            </div>
-                        </dl>
-                        {m && (
-                            <div className={"hsMeters"}>
-                                <Meter label={"CPU"} percent={m.cpu_percent} fmt={pct}
-                                       detail={m.cpu_cores && t('homelabStatus.cores', { count: m.cpu_cores })}/>
-                                <Meter label={"RAM"} percent={m.memory.percent} fmt={pct}
-                                       detail={gbPair(m.memory.used_bytes, m.memory.total_bytes)}/>
-                                <Meter label={t('homelabStatus.disk')} percent={m.disk.percent} fmt={pct}
-                                       detail={gbPair(m.disk.used_bytes, m.disk.total_bytes)}/>
-                            </div>
+                            </dl>
                         )}
-                    </div>
-
-                    <div className={"hsCol"}>
-                        {daily.length > 0 && (
-                            <div>
-                                <h4>{t('homelabStatus.strip')}</h4>
+                        <div>
+                            <h4>{t('homelabStatus.availability')} <b>{a30Text}</b></h4>
+                            {daily.length > 0 && (
                                 <div
                                     className={"hsStrip"}
                                     role={"img"}
-                                    aria-label={t('homelabStatus.stripLabel', { value: a30 == null ? t('homelabStatus.noData') : pct.format(a30) })}
+                                    aria-label={t('homelabStatus.stripLabel', { value: a30Text })}
                                     onPointerOver={showTip}
                                     onClick={showTip}
                                     onPointerLeave={() => setTip(null)}
@@ -196,44 +175,40 @@ function HomelabStatus() {
                                         <span key={d.day} data-level={level(d.availability)} data-day={d.day} data-value={d.availability ?? ''}/>
                                     ))}
                                 </div>
-                            </div>
-                        )}
-                        {last && (
-                            <div
-                                role={"img"}
-                                aria-label={t('homelabStatus.chartLabel', {
-                                    cpu: pct.format(last.cpu_percent / 100),
-                                    ram: pct.format(last.memory_percent / 100),
-                                })}
-                            >
-                                <h4>{t('homelabStatus.chart')}</h4>
-                                <Chart hourly={hourly} end={data.generated_at}/>
-                                <div className={"hsAxis"} aria-hidden={"true"}>
-                                    <span>{t('homelabStatus.ago24')}</span>
-                                    <span className={"hsLegend"}>
-                                        <i className={"hsCpu"}/>CPU
-                                        <i className={"hsRam"}/>RAM
-                                    </span>
-                                    <span>{t('homelabStatus.now')}</span>
-                                </div>
-                            </div>
-                        )}
-                        {data.services.length > 0 && (
-                            <div>
-                                <h4>{t('homelabStatus.services')}</h4>
-                                <ul className={"hsServices"}>
-                                    {data.services.map((s) => (
-                                        <li key={s.name} data-status={s.status}>
-                                            <span className={"hsDot"} aria-hidden={"true"}/>
-                                            {s.url ? <a href={s.url} target={"_blank"} rel={"noreferrer"}>{s.name}</a> : s.name}
-                                            <span className={"hsMuted"}>{t(`homelabStatus.${s.status}`)}</span>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                        )}
+                            )}
+                        </div>
                     </div>
+
+                    {m && (
+                        <div className={"hsMeters"}>
+                            <Meter label={"CPU"} percent={m.cpu_percent} fmt={pct}/>
+                            <Meter label={"RAM"} percent={m.memory.percent} fmt={pct}/>
+                            <Meter label={t('homelabStatus.disk')} percent={m.disk.percent} fmt={pct}/>
+                        </div>
+                    )}
                 </div>
+
+                {/* Hidden until there are enough hours to show a trend */}
+                {last && (
+                    <div
+                        role={"img"}
+                        aria-label={t('homelabStatus.chartLabel', {
+                            cpu: pct.format(last.cpu_percent / 100),
+                            ram: pct.format(last.memory_percent / 100),
+                        })}
+                    >
+                        <h4>{t('homelabStatus.chart')}</h4>
+                        <Chart hourly={hourly} end={data.generated_at}/>
+                        <div className={"hsAxis"} aria-hidden={"true"}>
+                            <span>{t('homelabStatus.ago24')}</span>
+                            <span className={"hsLegend"}>
+                                <i className={"hsCpu"}/>CPU
+                                <i className={"hsRam"}/>RAM
+                            </span>
+                            <span>{t('homelabStatus.now')}</span>
+                        </div>
+                    </div>
+                )}
             </div>
         );
     }
