@@ -1,12 +1,24 @@
 import { useRef, useState } from 'react';
+import { flushSync } from 'react-dom';
 import { useTranslation } from "react-i18next";
 import "./Projects.css"
+import HomelabStatus from "../HomelabStatus/HomelabStatus.jsx";
 
 const PROJECTS = [
     {
         id: 'homelab',
         stack: ['Docker', 'Caddy', 'Tailscale', 'Cloudflare Tunnel', 'AdGuard Home', 'Python', 'Playwright'],
         links: [['github.com/Bebaz0/HomeLab', 'https://github.com/Bebaz0/HomeLab']],
+    },
+    {
+        id: 'homelab-status',
+        img: '/projects/homelab-status.svg',
+        stack: ['Cloudflare Workers', 'D1', 'TypeScript', 'Python', 'Docker'],
+        links: [
+            ['github.com/Bebaz0/homelab-status', 'https://github.com/Bebaz0/homelab-status'],
+            // In page link: label is an i18n key, target lives in another tab
+            ['projects.seeLive', '#homelab-status', 'homelab'],
+        ],
     },
     {
         id: 'habitwar',
@@ -30,6 +42,7 @@ const PROJECTS = [
 ];
 
 const KEY_STEP = { ArrowDown: 1, ArrowRight: 1, ArrowUp: -1, ArrowLeft: -1 };
+const imgOf = (p) => p.img ?? `/projects/${p.id}.webp`;
 
 function Projects() {
     const { t } = useTranslation();
@@ -49,6 +62,14 @@ function Projects() {
         e.preventDefault();
         select(next);
         tabsRef.current.children[next].focus();
+    };
+
+    // Open the tab that holds the target, then scroll to it once it is rendered
+    const jumpTo = (e, href, tab) => {
+        e.preventDefault();
+        flushSync(() => select(PROJECTS.findIndex((p) => p.id === tab)));
+        const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        document.querySelector(href).scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
     };
 
     return (
@@ -73,9 +94,9 @@ function Projects() {
                 <div className={"projWindow"}>
                     <div className={"projBar"} aria-hidden={"true"}>
                         <span/><span/><span/>
-                        <b>{PROJECTS[active].id}.{zoomed ? 'webp' : 'md'}</b>
+                        <b>{zoomed ? imgOf(PROJECTS[active]).split('/').pop() : `${PROJECTS[active].id}.md`}</b>
                     </div>
-                    {/* Every panel sits in the same grid cell, so the window keeps the height of the tallest one */}
+                    {/* Only the open panel takes space, so the window fits it (HomeLab is much taller with the live status) */}
                     <div className={"projPanels"}>
                         {PROJECTS.map((p, i) => (
                             <div
@@ -94,14 +115,15 @@ function Projects() {
                                 </ul>
                                 <p className={"projStack"}>{p.stack.join(' · ')}</p>
                                 <p className={"projLinks"}>
-                                    {p.links.map(([label, href]) => (
-                                        <a key={href} href={href} target={"_blank"} rel={"noreferrer"}>{label}</a>
-                                    ))}
+                                    {p.links.map(([label, href, tab]) => tab
+                                        ? <a key={href} href={href} onClick={(e) => jumpTo(e, href, tab)}>{t(label)}</a>
+                                        : <a key={href} href={href} target={"_blank"} rel={"noreferrer"}>{label}</a>
+                                    )}
                                 </p>
                                 <div className={"projShot"}>
                                     <button className={"projZoom"} onClick={() => setZoomed(true)} aria-label={t('projects.zoom')}>
                                         <img
-                                            src={`/projects/${p.id}.webp`}
+                                            src={imgOf(p)}
                                             alt={t(`projects.list.${p.id}.alt`)}
                                             width={1200}
                                             height={750}
@@ -120,6 +142,7 @@ function Projects() {
                                         ))}
                                     </div>
                                 </div>
+                                {p.id === 'homelab' && <HomelabStatus/>}
                             </div>
                         ))}
                         {zoomed && (
@@ -130,7 +153,7 @@ function Projects() {
                                 onKeyDown={(e) => e.key === 'Escape' && setZoomed(false)}
                                 aria-label={t('projects.zoomClose')}
                             >
-                                <img src={`/projects/${PROJECTS[active].id}.webp`} alt={t(`projects.list.${PROJECTS[active].id}.alt`)}/>
+                                <img src={imgOf(PROJECTS[active])} alt={t(`projects.list.${PROJECTS[active].id}.alt`)}/>
                             </button>
                         )}
                     </div>

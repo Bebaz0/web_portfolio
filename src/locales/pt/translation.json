@@ -8,6 +8,7 @@
     "zoom": "Ampliar imagem",
     "zoomHint": "Clica para ampliar",
     "zoomClose": "Fechar imagem",
+    "seeLive": "Ver ao vivo",
     "list": {
       "homelab": {
         "title": "HomeLab",
@@ -19,6 +20,18 @@
           "Este site é servido a partir dela através de um Cloudflare Tunnel"
         ],
         "alt": "Dashboard do HomeLab com o estado de todos os serviços"
+      },
+      "homelab-status": {
+        "title": "Homelab Status",
+        "description": "O estado ao vivo do meu servidor caseiro, servido a partir da edge. Um coletor no servidor envia um heartbeat a cada 30 segundos para um Cloudflare Worker, que o guarda em D1 e o serve em JSON para este site e como card SVG para o meu perfil do GitHub.",
+        "bullets": [
+          "Push em vez de pull. Nada no homelab fica exposto, o coletor só faz pedidos HTTPS de saída com um bearer token",
+          "As falhas detetam-se pelo silêncio. Ao fim de 180 segundos sem heartbeat o servidor passa a offline, e o Worker continua a responder com offline desde HH:MM",
+          "O D1 guarda o último snapshot, os minutos com heartbeat por dia para a disponibilidade, e médias horárias de CPU e RAM para o gráfico de 24 horas. Um cron diário apaga as linhas antigas",
+          "O GitHub não corre JavaScript num README, por isso o card do perfil é um SVG desenhado pelo Worker",
+          "Cabe com folga no plano gratuito: cerca de 2880 pedidos por dia, e um ingest a menos de 15 segundos do anterior recebe um 429"
+        ],
+        "alt": "Arquitetura do homelab status: o coletor no arroz envia para um Cloudflare Worker com D1, que serve este site e o README do GitHub"
       },
       "habitwar": {
         "title": "HabitWar",
@@ -50,6 +63,35 @@
         "alt": "Arte do ecrã inicial do Minix Boxing"
       }
     }
+  },
+  "homelabStatus": {
+    "region": "Estado do homelab ao vivo",
+    "loading": "A carregar o estado do homelab",
+    "error": "Não foi possível carregar o estado do homelab.",
+    "stale": "Sem ligação, a mostrar os últimos dados",
+    "online": "Online",
+    "offline": "Offline",
+    "unknown": "Sem dados ainda",
+    "offlineSince": "Offline desde {{time}}",
+    "updated": "Atualizado {{when}}",
+    "uptime": "Uptime",
+    "uptimeValue": "{{d}} d {{h}} h",
+    "containers": "Contentores",
+    "availability": "Disponibilidade, 30 dias",
+    "disk": "Disco",
+    "cores_one": "{{count}} núcleo",
+    "cores_other": "{{count}} núcleos",
+    "strip": "Disponibilidade por dia, últimos 30 dias",
+    "stripLabel": "Disponibilidade nos últimos 30 dias: {{value}}",
+    "noData": "sem dados",
+    "chart": "CPU e RAM, últimas 24 horas",
+    "chartLabel": "Utilização de CPU e RAM nas últimas 24 horas. Agora: CPU {{cpu}}, RAM {{ram}}",
+    "ago24": "há 24 h",
+    "now": "agora",
+    "services": "Serviços",
+    "up": "Operacional",
+    "down": "Em baixo",
+    "degraded": "Degradado"
   },
   "about": {
     "title": "Sobre Mim",

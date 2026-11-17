@@ -1,0 +1,273 @@
+.hs {
+    --hs-down: #c0503a;
+    --hs-degraded: #d08a1e;
+
+    position: relative;
+    margin-top: 2rem;
+}
+
+.hs .projPrompt {
+    margin-bottom: 0.75rem;
+}
+
+.hsCard {
+    display: grid;
+    gap: 1.25rem;
+    padding: 1.25rem;
+    border: 1px solid var(--grid-color);
+    border-radius: 12px;
+    background: #fff;
+}
+
+.hs p,
+.hs li,
+.hs dd {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.hs .hsMuted,
+.hs h4,
+.hs dt,
+.hs small {
+    color: var(--color-text-muted);
+    font-size: 0.85rem;
+    font-weight: 400;
+}
+
+.hs h4 {
+    margin: 0 0 0.5rem;
+}
+
+.hs .hsNote {
+    color: var(--color-text-muted);
+    font-size: 0.85rem;
+}
+
+/* Header: state on the left, freshness on the right */
+.hsHead {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.25rem 1rem;
+}
+
+.hs .hsState {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.05rem;
+}
+
+.hsDot {
+    flex: none;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--color-text-muted);
+}
+
+[data-status="online"] > .hsDot,
+[data-status="up"] > .hsDot { background: var(--color-Pine); }
+[data-status="offline"] > .hsDot,
+[data-status="down"] > .hsDot { background: var(--hs-down); }
+[data-status="degraded"] > .hsDot { background: var(--hs-degraded); }
+
+.hsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.25rem 2rem;
+}
+
+.hsCol {
+    display: grid;
+    align-content: start;
+    gap: 1.25rem;
+    min-width: 0;
+}
+
+/* Uptime, containers, availability */
+.hsStats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.5rem;
+    margin: 0;
+}
+
+.hs dd {
+    margin: 0;
+    font-weight: 700;
+}
+
+/* Usage bars */
+.hsMeters {
+    display: grid;
+    gap: 0.75rem;
+}
+
+.hsMeter {
+    display: grid;
+    grid-template-columns: 2.75rem minmax(0, 1fr) 3.5rem;
+    align-items: center;
+    column-gap: 0.75rem;
+    font-size: 0.9rem;
+}
+
+.hsMeter small {
+    grid-column: 2 / -1;
+}
+
+.hsValue {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+}
+
+.hsTrack {
+    height: 8px;
+    border-radius: 4px;
+    background: var(--grid-color);
+    overflow: hidden;
+}
+
+.hsTrack i {
+    display: block;
+    height: 100%;
+    border-radius: inherit;
+    background: var(--color-Pine);
+}
+
+/* 30 day strip */
+.hsStrip {
+    display: flex;
+    gap: 3px;
+    height: 26px;
+}
+
+.hsStrip span {
+    flex: 1;
+    border-radius: 3px;
+    background: rgba(0, 0, 0, 0.09);
+}
+
+.hsStrip span:hover {
+    outline: 1.5px solid var(--color-text);
+    outline-offset: -1.5px;
+}
+
+.hsStrip [data-level="1"] { background: var(--hs-down); }
+.hsStrip [data-level="2"] { background: var(--color-sage); }
+.hsStrip [data-level="3"] { background: var(--color-Pine); }
+
+/* 24 h chart */
+.hsChart {
+    width: 100%;
+    height: auto;
+    overflow: visible;
+}
+
+.hsChart line {
+    stroke: var(--grid-color);
+    stroke-width: 1;
+}
+
+.hsChart polyline {
+    fill: none;
+    stroke-width: 2;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+}
+
+.hsChart .hsCpu { stroke: var(--color-Pine); fill: var(--color-Pine); }
+.hsChart .hsRam { stroke: var(--color-sage); fill: var(--color-sage); stroke-dasharray: 5 4; }
+.hsChart circle.hsRam { stroke-dasharray: none; }
+.hsChart polyline.hsCpu,
+.hsChart polyline.hsRam { fill: none; }
+
+.hsAxis {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+    margin-top: 0.4rem;
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+}
+
+.hsLegend {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+/* Line samples, so the legend does not rely on colour alone */
+.hsLegend i {
+    width: 16px;
+    border-top: 2px solid var(--color-Pine);
+}
+
+.hsLegend i.hsRam {
+    margin-left: 0.5rem;
+    border-top: 2px dashed var(--color-sage);
+}
+
+/* Services */
+.hs .hsServices {
+    display: grid;
+    gap: 0.4rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.hsServices li {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0 0.5rem;
+    white-space: nowrap;
+}
+
+.hsServices a {
+    color: var(--color-Pine);
+    font-weight: 700;
+}
+
+.hsServices .hsMuted {
+    margin-left: auto;
+}
+
+/* Skeleton */
+.hsLoading span {
+    display: block;
+    height: 14px;
+    border-radius: 4px;
+    background: var(--grid-color);
+    animation: hsPulse 1.4s ease-in-out infinite;
+}
+
+@keyframes hsPulse {
+    50% { opacity: 0.5; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hsLoading span {
+        animation: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .hs {
+        margin-top: 1.5rem;
+    }
+
+    .hsCard {
+        padding: 1rem;
+    }
+
+    .hs p,
+    .hs li,
+    .hs dd {
+        font-size: 0.875rem;
+    }
+}

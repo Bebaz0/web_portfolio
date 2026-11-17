@@ -8,6 +8,7 @@
     "zoom": "Zoom image",
     "zoomHint": "Click to zoom",
     "zoomClose": "Close image",
+    "seeLive": "See it live",
     "list": {
       "homelab": {
         "title": "HomeLab",
@@ -19,6 +20,18 @@
           "This website is served from it through a Cloudflare Tunnel"
         ],
         "alt": "HomeLab dashboard showing the status of every service"
+      },
+      "homelab-status": {
+        "title": "Homelab Status",
+        "description": "Live status of my home server, served from the edge. A collector on the server pushes a heartbeat every 30 seconds to a Cloudflare Worker, which stores it in D1 and serves it as JSON for this site and as an SVG card for my GitHub profile.",
+        "bullets": [
+          "Push instead of pull. Nothing in the homelab is exposed, the collector only sends HTTPS requests out with a bearer token",
+          "Failures are detected by silence. After 180 seconds without a heartbeat the server counts as offline, and the Worker keeps answering with offline since HH:MM",
+          "D1 keeps the latest snapshot, the minutes with a heartbeat per day for availability, and hourly CPU and RAM averages for the 24 hour chart. A daily cron clears old rows",
+          "GitHub does not run JavaScript in a README, so the profile card is an SVG drawn by the Worker",
+          "Fits the free tier with room to spare: about 2,880 requests a day, and an ingest less than 15 seconds after the previous one gets a 429"
+        ],
+        "alt": "Architecture of homelab status: the collector on arroz pushes to a Cloudflare Worker with D1, which serves this site and the GitHub README"
       },
       "habitwar": {
         "title": "HabitWar",
@@ -50,6 +63,35 @@
         "alt": "Minix Boxing title screen art"
       }
     }
+  },
+  "homelabStatus": {
+    "region": "Live homelab status",
+    "loading": "Loading homelab status",
+    "error": "Could not load the homelab status right now.",
+    "stale": "Connection lost, showing the last data",
+    "online": "Online",
+    "offline": "Offline",
+    "unknown": "No data yet",
+    "offlineSince": "Offline since {{time}}",
+    "updated": "Updated {{when}}",
+    "uptime": "Uptime",
+    "uptimeValue": "{{d}} d {{h}} h",
+    "containers": "Containers",
+    "availability": "Availability, 30 days",
+    "disk": "Disk",
+    "cores_one": "{{count}} core",
+    "cores_other": "{{count}} cores",
+    "strip": "Availability per day, last 30 days",
+    "stripLabel": "Availability over the last 30 days: {{value}}",
+    "noData": "no data",
+    "chart": "CPU and RAM, last 24 hours",
+    "chartLabel": "CPU and RAM usage over the last 24 hours. Latest: CPU {{cpu}}, RAM {{ram}}",
+    "ago24": "24 h ago",
+    "now": "now",
+    "services": "Services",
+    "up": "Up",
+    "down": "Down",
+    "degraded": "Degraded"
   },
   "about": {
     "title": "About Me",

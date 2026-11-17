@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="750" viewBox="0 0 1200 750" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+  <defs>
+    <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+      <path d="M50 0H0V50" fill="none" stroke="#e5e5e5" stroke-width="1"/>
+    </pattern>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10z" fill="#2d7a70"/>
+    </marker>
+  </defs>
+
+  <rect width="1200" height="750" fill="#F4F4F4"/>
+  <rect width="1200" height="750" fill="url(#grid)"/>
+
+  <text x="40" y="84" font-size="40" font-weight="700" fill="#2d7a70">Architecture</text>
+
+  <!-- Home server -->
+  <rect x="40" y="130" width="400" height="560" rx="22" fill="#fff" stroke="#2d7a70" stroke-width="2.5" stroke-dasharray="10 7"/>
+  <text x="66" y="178" font-size="24" fill="#1a1a1a">Home server (arroz)</text>
+
+  <rect x="66" y="236" width="150" height="76" rx="14" fill="#F4F4F4" stroke="#cfcfcf" stroke-width="2"/>
+  <text x="141" y="282" font-size="24" fill="#1a1a1a" text-anchor="middle">Netdata</text>
+
+  <rect x="66" y="528" width="150" height="76" rx="14" fill="#F4F4F4" stroke="#cfcfcf" stroke-width="2"/>
+  <text x="141" y="574" font-size="24" fill="#1a1a1a" text-anchor="middle">Komodo</text>
+
+  <rect x="262" y="372" width="160" height="96" rx="14" fill="#2d7a70"/>
+  <text x="342" y="428" font-size="24" font-weight="700" fill="#fff" text-anchor="middle">Collector</text>
+
+  <g fill="none" stroke="#2d7a70" stroke-width="2.5" marker-end="url(#arrow)">
+    <path d="M216 274H238V404H259"/>
+    <path d="M216 566H238V436H259"/>
+  </g>
+
+  <!-- Push -->
+  <path d="M422 420H606" fill="none" stroke="#2d7a70" stroke-width="3" marker-end="url(#arrow)"/>
+  <text x="514" y="366" font-size="20" fill="#1a1a1a" text-anchor="middle">HTTPS push</text>
+  <text x="514" y="394" font-size="20" fill="#1a1a1a" text-anchor="middle">every 30s</text>
+  <text x="514" y="456" font-size="16" fill="#666" text-anchor="middle">(bearer token)</text>
+
+  <!-- Cloudflare -->
+  <rect x="610" y="130" width="240" height="560" rx="22" fill="#fff" stroke="#64b6ac" stroke-width="2.5" stroke-dasharray="10 7"/>
+  <text x="636" y="178" font-size="24" fill="#1a1a1a">Cloudflare</text>
+
+  <rect x="630" y="372" width="200" height="96" rx="14" fill="#2d7a70"/>
+  <text x="730" y="410" font-size="20" fill="#fff" text-anchor="middle">Cloudflare</text>
+  <text x="730" y="442" font-size="24" font-weight="700" fill="#fff" text-anchor="middle">Worker</text>
+
+  <rect x="680" y="572" width="100" height="76" rx="14" fill="#F4F4F4" stroke="#cfcfcf" stroke-width="2"/>
+  <text x="730" y="618" font-size="24" fill="#1a1a1a" text-anchor="middle">D1</text>
+
+  <path d="M730 471V569" fill="none" stroke="#2d7a70" stroke-width="2.5" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+
+  <!-- Consumers -->
+  <g fill="none" stroke="#2d7a70" stroke-width="2.5" marker-end="url(#arrow)">
+    <path d="M830 404H862V274H966"/>
+    <path d="M830 436H862V566H966"/>
+  </g>
+  <text x="914" y="262" font-size="18" fill="#1a1a1a" text-anchor="middle">JSON</text>
+  <text x="914" y="554" font-size="18" fill="#1a1a1a" text-anchor="middle">SVG card</text>
+
+  <rect x="970" y="236" width="210" height="76" rx="14" fill="#fff" stroke="#2d7a70" stroke-width="2.5"/>
+  <text x="1075" y="281" font-size="22" fill="#1a1a1a" text-anchor="middle">afonsolima.dev</text>
+
+  <rect x="970" y="528" width="210" height="76" rx="14" fill="#fff" stroke="#2d7a70" stroke-width="2.5"/>
+  <text x="1075" y="573" font-size="22" fill="#1a1a1a" text-anchor="middle">GitHub README</text>
+</svg>

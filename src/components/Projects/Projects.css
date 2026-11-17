@@ -99,21 +99,21 @@
 
 .projPanels {
     position: relative;
-    display: grid;
 }
 
 .projPanel {
-    grid-area: 1 / 1;
+    display: none;
     min-width: 0;
     padding: 1.5rem;
-    visibility: hidden;
-    opacity: 0;
 }
 
 .projPanel.is-active {
-    visibility: visible;
-    opacity: 1;
-    transition: opacity 0.25s ease;
+    display: block;
+    animation: projFade 0.25s ease;
+}
+
+@keyframes projFade {
+    from { opacity: 0; }
 }
 
 .projPanel h3 {
@@ -252,7 +252,10 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .projPanel.is-active,
+    .projPanel.is-active {
+        animation: none;
+    }
+
     .projTabs button {
         transition: none;
     }
