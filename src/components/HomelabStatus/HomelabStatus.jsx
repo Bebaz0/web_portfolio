@@ -131,9 +131,10 @@ function HomelabStatus() {
             <div className={"hsCard"}>
                 <div className={"hsHead"}>
                     <p className={"hsState"} data-status={data.status}>
-                        <span className={"hsDot"} aria-hidden={"true"}/>
-                        <strong>{state}</strong>
-                        {data.host && <span className={"hsMuted"}>{data.host}</span>}
+                        {/* Online is just the green dot; any other state is spelled out */}
+                        <span className={"hsDot"} role={"img"} aria-label={state}/>
+                        {data.host && <strong>{data.host}</strong>}
+                        {data.status !== 'online' && <span>{state}</span>}
                     </p>
                     {when && (
                         <p className={"hsMuted"}>
@@ -160,8 +161,8 @@ function HomelabStatus() {
                                 </div>
                             </dl>
                         )}
-                        <div>
-                            <h4>{t('homelabStatus.availability')} <b>{a30Text}</b></h4>
+                        {/* 30 day strip with the overall figure beside it; the tooltip and label carry the rest */}
+                        <div className={"hsAvail"}>
                             {daily.length > 0 && (
                                 <div
                                     className={"hsStrip"}
@@ -176,6 +177,7 @@ function HomelabStatus() {
                                     ))}
                                 </div>
                             )}
+                            <b>{a30Text}</b>
                         </div>
                     </div>
 
@@ -197,7 +199,6 @@ function HomelabStatus() {
                             ram: pct.format(last.memory_percent / 100),
                         })}
                     >
-                        <h4>{t('homelabStatus.chart')}</h4>
                         <Chart hourly={hourly} end={data.generated_at}/>
                         <div className={"hsAxis"} aria-hidden={"true"}>
                             <span>{t('homelabStatus.ago24')}</span>

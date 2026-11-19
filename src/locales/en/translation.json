@@ -5,61 +5,31 @@
   },
   "projects": {
     "title": "Projects",
-    "zoom": "Zoom image",
-    "zoomHint": "Click to zoom",
-    "zoomClose": "Close image",
     "seeLive": "See it live",
     "list": {
       "homelab": {
         "title": "HomeLab",
-        "description": "The Linux box under my desk, running 19 self hosted services my family uses every day: passwords, shopping lists, fitness tracking and retro games.",
-        "bullets": [
-          "Docker Compose stacks behind a single Caddy proxy",
-          "No port forwarding: local DNS at home, Tailscale outside",
-          "Runs my own bots: a GitHub PR reviewer and a League invite responder",
-          "Serves this site through a Cloudflare Tunnel"
-        ],
+        "description": "The Linux box under my desk, running 19 self hosted services my family uses every day.",
         "alt": "HomeLab dashboard showing the status of every service"
       },
       "homelab-status": {
         "title": "Homelab Status",
-        "description": "Live status of my home server. A collector pushes a heartbeat every 30 seconds to a Cloudflare Worker, which serves JSON to this site and an SVG card to my GitHub profile.",
-        "bullets": [
-          "Push, not pull: nothing in the homelab is exposed",
-          "Offline after 180 seconds of silence",
-          "D1 stores snapshots, daily uptime and hourly CPU/RAM, pruned by a daily cron",
-          "SVG card, since READMEs can't run JavaScript",
-          "Free tier with room to spare: about 2,880 requests a day, rate limited with 429"
-        ],
+        "description": "Live status of my home server, pushed every 30 seconds to a Cloudflare Worker that feeds this site and my GitHub profile.",
         "alt": "Architecture of homelab status: the collector on arroz pushes to a Cloudflare Worker with D1, which serves this site and the GitHub README"
       },
       "habitwar": {
         "title": "HabitWar",
-        "description": "Habit building as a multiplayer competition. Challenge friends, keep your streaks and climb the leaderboard.",
-        "bullets": [
-          "Live on iOS and Android with paying users",
-          "Habits proven by photo, timer or location",
-          "Auth, subscriptions, push notifications and widgets"
-        ],
+        "description": "Habit building as a multiplayer competition, live on iOS and Android.",
         "alt": "HabitWar landing page"
       },
       "portobox": {
         "title": "Porto Box Cup",
         "description": "The official platform of Porto Box Cup, the largest boxing tournament in the world.",
-        "bullets": [
-          "Event site, team registration dashboard and admin panel",
-          "348 teams and 1,200+ athletes"
-        ],
         "alt": "Porto Box Cup homepage"
       },
       "minix": {
         "title": "Minix Boxing",
-        "description": "Two player boxing game for MINIX, written in C by a team of four at FEUP, on our own keyboard, mouse, video, timer and RTC drivers.",
-        "bullets": [
-          "Keyboard player hits Q W E R prompts, mouse player pops bubbles",
-          "Combos, HP loss on misses, shorter timing windows every round",
-          "Character select, pause menu and leaderboard at 1024x768"
-        ],
+        "description": "Two player boxing game for MINIX, written in C on our own device drivers.",
         "alt": "Minix Boxing title screen art"
       }
     }
@@ -77,18 +47,16 @@
     "uptime": "Uptime",
     "uptimeValue": "{{d}} d {{h}} h",
     "containers": "Containers",
-    "availability": "Availability, 30 days",
     "disk": "Disk",
     "stripLabel": "Availability over the last 30 days: {{value}}",
     "noData": "no data",
-    "chart": "CPU and RAM, last 24 hours",
     "chartLabel": "CPU and RAM usage over the last 24 hours. Latest: CPU {{cpu}}, RAM {{ram}}",
     "ago24": "24 h ago",
     "now": "now"
   },
   "about": {
     "title": "About Me",
-    "description": "I'm Afonso Lima, a Computer Engineering student at the Faculty of Engineering of the University of Porto. Right now my focus is on self-hosting and open source development, I run my own services on Linux and Docker on a home server, and that's where most of my free time goes. Before that I built HabitWar, a social competition app for iOS and Android that's still live, and I work on web and mobile with React Native, Swift, TypeScript, and PostgreSQL. I also write C, C++, Java, and Python. Outside the digital world, I'm a national boxing champion, an important part of my background and identity."
+    "description": "I'm Afonso Lima, a final year Informatics and Computing Engineering student at the Faculty of Engineering of the University of Porto. Right now my focus is on backend, infrastructure and self hosting: I run my own services on Linux and Docker on a home server, and that's where most of my free time goes. I also contribute to student groups at FEUP, where I help build their websites and deploy and manage a Kubernetes cluster. Before that I built HabitWar, a social competition app that's still live on iOS and Android, and worked on web and mobile projects with React, React Native, Swift, TypeScript and PostgreSQL. I also write C, C++, Java and Python. Outside the digital world, I'm a two time national boxing champion, an important part of my background and identity."
   },
   "contributions": {
     "total": "{{count}} contributions in the last year",

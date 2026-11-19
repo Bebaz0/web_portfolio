@@ -5,61 +5,31 @@
   },
   "projects": {
     "title": "Projetos",
-    "zoom": "Ampliar imagem",
-    "zoomHint": "Clica para ampliar",
-    "zoomClose": "Fechar imagem",
     "seeLive": "Ver ao vivo",
     "list": {
       "homelab": {
         "title": "HomeLab",
-        "description": "A máquina Linux debaixo da minha secretária, com 19 serviços self hosted que a minha família usa todos os dias: passwords, listas de compras, treino e jogos retro.",
-        "bullets": [
-          "Stacks Docker Compose atrás de um único proxy Caddy",
-          "Sem port forwarding: DNS local em casa, Tailscale fora",
-          "Corre bots meus: um revisor de PRs no GitHub e um que responde a convites de League",
-          "Serve este site através de um Cloudflare Tunnel"
-        ],
+        "description": "A máquina Linux debaixo da minha secretária, com 19 serviços self hosted que a minha família usa todos os dias.",
         "alt": "Dashboard do HomeLab com o estado de todos os serviços"
       },
       "homelab-status": {
         "title": "Homelab Status",
-        "description": "O estado ao vivo do meu servidor caseiro. Um coletor envia um heartbeat a cada 30 segundos para um Cloudflare Worker, que serve JSON para este site e um card SVG para o meu perfil do GitHub.",
-        "bullets": [
-          "Push em vez de pull: nada no homelab fica exposto",
-          "Offline ao fim de 180 segundos de silêncio",
-          "O D1 guarda snapshots, uptime diário e CPU/RAM por hora, limpos por um cron diário",
-          "Card em SVG, porque um README não corre JavaScript",
-          "Cabe com folga no plano gratuito: cerca de 2880 pedidos por dia, com rate limit via 429"
-        ],
+        "description": "O estado ao vivo do meu servidor caseiro, enviado a cada 30 segundos para um Cloudflare Worker que alimenta este site e o meu perfil do GitHub.",
         "alt": "Arquitetura do homelab status: o coletor no arroz envia para um Cloudflare Worker com D1, que serve este site e o README do GitHub"
       },
       "habitwar": {
         "title": "HabitWar",
-        "description": "Criar hábitos como competição multijogador. Desafia amigos, mantém as streaks e sobe na leaderboard.",
-        "bullets": [
-          "Disponível em iOS e Android, com clientes pagantes",
-          "Hábitos provados com foto, timer ou localização",
-          "Autenticação, subscrições, notificações push e widgets"
-        ],
+        "description": "Criar hábitos como competição multijogador, disponível em iOS e Android.",
         "alt": "Landing page do HabitWar"
       },
       "portobox": {
         "title": "Porto Box Cup",
         "description": "A plataforma oficial do Porto Box Cup, o maior torneio de boxe do mundo.",
-        "bullets": [
-          "Site do evento, dashboard de inscrições para equipas e painel de administração",
-          "348 equipas e mais de 1200 atletas"
-        ],
         "alt": "Página inicial do Porto Box Cup"
       },
       "minix": {
         "title": "Minix Boxing",
-        "description": "Jogo de boxe para dois jogadores em MINIX, escrito em C por uma equipa de quatro na FEUP, sobre drivers nossos de teclado, rato, vídeo, timer e RTC.",
-        "bullets": [
-          "Um jogador acerta nas teclas Q W E R, o outro rebenta bolhas com o rato",
-          "Combos, perdes HP quando falhas, janelas de tempo mais curtas a cada ronda",
-          "Seleção de personagem, menu de pausa e leaderboard a 1024x768"
-        ],
+        "description": "Jogo de boxe para dois jogadores em MINIX, escrito em C sobre drivers nossos.",
         "alt": "Arte do ecrã inicial do Minix Boxing"
       }
     }
@@ -77,18 +47,16 @@
     "uptime": "Uptime",
     "uptimeValue": "{{d}} d {{h}} h",
     "containers": "Contentores",
-    "availability": "Disponibilidade, 30 dias",
     "disk": "Disco",
     "stripLabel": "Disponibilidade nos últimos 30 dias: {{value}}",
     "noData": "sem dados",
-    "chart": "CPU e RAM, últimas 24 horas",
     "chartLabel": "Utilização de CPU e RAM nas últimas 24 horas. Agora: CPU {{cpu}}, RAM {{ram}}",
     "ago24": "há 24 h",
     "now": "agora"
   },
   "about": {
     "title": "Sobre Mim",
-    "description": "Sou o Afonso Lima, estudante de Engenharia Informática na Faculdade de Engenharia da Universidade do Porto. Neste momento o meu foco está em self-hosting e desenvolvimento open source, corro os meus próprios serviços em Linux e Docker num servidor caseiro, e é aí que passo a maior parte do tempo livre. Antes disso construí o HabitWar, uma app de competição social para iOS e Android que continua no ar, e trabalho em web e mobile com React Native, Swift, TypeScript e PostgreSQL. Também escrevo C, C++, Java e Python. Fora do digital, sou campeão nacional de boxe, algo que faz parte do meu percurso e identidade."
+    "description": "Sou o Afonso Lima, estudante finalista de Engenharia Informática e Computação na Faculdade de Engenharia da Universidade do Porto. Neste momento o meu foco está em backend, infraestrutura e self hosting: corro os meus próprios serviços em Linux e Docker num servidor caseiro, e é aí que passo a maior parte do tempo livre. Também contribuo para núcleos de estudantes da FEUP, onde ajudo a construir os sites e a fazer o deployment e a gestão de um cluster Kubernetes. Antes disso construí o HabitWar, uma app de competição social que continua no ar em iOS e Android, e trabalhei em projetos web e mobile com React, React Native, Swift, TypeScript e PostgreSQL. Também escrevo C, C++, Java e Python. Fora do digital, sou bicampeão nacional de boxe, algo que faz parte do meu percurso e identidade."
   },
   "contributions": {
     "total": "{{count}} contribuições em 12 meses",

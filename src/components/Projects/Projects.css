@@ -1,6 +1,5 @@
 .projects {
     width: 100%;
-    text-align: left;
 }
 
 .projects h2 {
@@ -12,77 +11,41 @@
 }
 
 .projLayout {
-    display: grid;
-    grid-template-columns: minmax(180px, 240px) minmax(0, 1fr);
-    gap: 1.5rem;
-    align-items: start;
+    display: flex;
+    justify-content: center;
 }
 
-/* Project list */
-.projTabs {
+/* Terminal window. --w and --h only exist after the user drags an edge.
+   The section wrapper is narrower than the viewport, so the background always shows beside it */
+.projWindow {
+    position: relative;
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
-}
-
-.projTabs button {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-    padding: 0.85rem 1.1rem;
-    border: 1px solid transparent;
-    border-radius: 12px;
-    background: rgba(255, 255, 255, 0.5);
-    color: var(--color-text-muted);
-    font: inherit;
-    font-size: 0.95rem;
-    text-align: left;
-    cursor: pointer;
-    transition: background 0.2s ease, color 0.2s ease;
-}
-
-.projTabs button::before {
-    content: "";
-    flex: none;
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: currentColor;
-}
-
-.projTabs button:hover {
-    color: var(--color-text);
-}
-
-.projTabs button[aria-selected="true"] {
-    background: #fff;
-    border-color: var(--grid-color);
-    color: var(--color-Pine);
-    font-weight: 700;
-}
-
-.projTabs button:focus-visible {
-    outline: 2px solid var(--color-Pine);
-    outline-offset: 2px;
-}
-
-/* Terminal window */
-.projWindow {
-    min-width: 0;
+    width: var(--w, 600px);
+    max-width: 100%;
+    height: var(--h, auto);
     overflow: hidden;
     background: #fff;
     border: 1px solid var(--grid-color);
     border-radius: var(--glass-radius);
 }
 
+/* Only a box on mobile, where it is the phone. Here the bar and panels sit straight in the window */
+.projFrame {
+    display: contents;
+}
+
 .projBar {
+    order: -1;  /* above the tabs, which come first in the markup */
+    position: relative;
+    flex: none;
     display: flex;
     align-items: center;
     gap: 6px;
-    padding: 0.7rem 1rem;
-    border-bottom: 1px solid var(--grid-color);
+    padding: 0.6rem 1rem;
     font-size: 0.8rem;
     color: var(--color-text-muted);
+    user-select: none;
 }
 
 .projBar span {
@@ -92,23 +55,77 @@
     background: var(--grid-color);
 }
 
+/* File name centred on the bar, whatever the dots take */
 .projBar b {
-    margin-left: 0.5rem;
+    position: absolute;
+    inset-inline: 0;
+    text-align: center;
     font-weight: 400;
+    pointer-events: none;
 }
 
+/* Tab bar across the window; the open tab joins the content below */
+.projTabs {
+    flex: none;
+    display: flex;
+    background: var(--color-bg);
+    border-block: 1px solid var(--grid-color);
+}
+
+.projTabs button {
+    flex: 1 1 auto;  /* longer names get more room, so none is cut at the default width */
+    min-width: 0;
+    padding: 0.5rem 0.4rem;
+    border: 0;
+    border-right: 1px solid var(--grid-color);
+    margin-bottom: -1px;  /* sits over the bar's bottom line, so the open tab can erase it */
+    background: none;
+    color: var(--color-text-muted);
+    font: inherit;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.projTabs button:last-child {
+    border-right: 0;
+}
+
+.projTabs button:hover {
+    color: var(--color-text);
+}
+
+.projTabs button[aria-selected="true"] {
+    background: #fff;
+    color: var(--color-Pine);
+    font-weight: 700;
+}
+
+.projTabs button:focus-visible {
+    outline: 2px solid var(--color-Pine);
+    outline-offset: -2px;
+}
+
+/* Scrolls once the window is dragged shorter than its content */
 .projPanels {
-    position: relative;
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
 }
 
 .projPanel {
     display: none;
     min-width: 0;
-    padding: 1.5rem;
+    padding: 1.25rem;
 }
 
 .projPanel.is-active {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
     animation: projFade 0.25s ease;
 }
 
@@ -116,137 +133,104 @@
     from { opacity: 0; }
 }
 
+/* The open tab already names the project here; the heading is for the phone */
 .projPanel h3 {
-    margin: 0 0 0.75rem;
-    font-size: 1.15rem;
-    color: var(--color-text);
-}
-
-/* Chill gets hard to read this small, so the body text is mono */
-.projPanel p,
-.projPanel li {
-    max-width: none;
+    display: none;
     margin: 0;
-    font-family: "JetBrains Mono", ui-monospace, monospace;
-    font-size: 0.85rem;
-    line-height: 1.7;
-    color: var(--color-text);
-}
-
-.projPanel .projStack {
-    font-size: 0.78rem;
-    color: var(--color-text-muted);
-}
-
-.projPanel ul {
-    margin: 0.75rem 0 1rem;
-    padding-left: 1.2rem;
-}
-
-.projPanel li::marker {
+    font-size: 1.35rem;
+    font-weight: 600;
+    text-align: center;
     color: var(--color-Pine);
 }
 
-.projLinks {
+/* Wide and short so the window stays compact; screenshots keep their top */
+.projShot {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 2 / 1;
+    object-fit: cover;
+    object-position: top;
+    border: 1px solid var(--grid-color);
+    border-radius: 10px;
+}
+
+/* Diagrams must not be cropped */
+.projShot[src$=".svg"] {
+    object-fit: contain;
+    background: var(--color-bg);
+}
+
+.projPanel .projDesc,
+.projPanel .projStack,
+.projPanel .projLinks {
+    max-width: none;
+    margin: 0;
+    line-height: 1.5;
+    text-align: center;
+    text-wrap: balance;
+}
+
+.projPanel .projDesc {
+    font-size: 1.05rem;
+}
+
+.projPanel .projStack {
+    font-size: 0.85rem;
+}
+
+.projPanel .projLinks {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     gap: 0.25rem 1.25rem;
-    margin-top: 0.5rem;
+    margin-top: -0.5rem;  /* reads as one block with the tech line above */
+    font-size: 1rem;
 }
 
 .projLinks a {
     color: var(--color-Pine);
     font-weight: 700;
-    overflow-wrap: anywhere;
 }
 
-/* Thumbnail is small on purpose, so the whole window fits on screen. Click to zoom */
-.projShot {
-    position: relative;
-    max-width: 360px;
-    margin-top: 1.25rem;
+.projPanel .hs {
+    margin-top: 0;
+    text-align: left;
 }
 
-.projZoom {
-    display: block;
-    width: 100%;
-    padding: 0;
-    border: 0;
-    border-radius: 10px;
-    background: none;
-    cursor: zoom-in;
-}
-
-.projZoom img {
-    width: 100%;
-    height: auto;
-    border: 1px solid var(--grid-color);
-    border-radius: 10px;
-}
-
-/* Three scribbled "click to zoom" notes to the right of the thumbnail.
-   Off palette colours on purpose, so they read as doodles on top of the UI */
-.projHints span {
+/* Invisible resize handles on the edges and bottom corners.
+   The corners are big because the rounded clip eats their outer tip */
+.projGrip {
     position: absolute;
-    left: calc(100% + 14px);
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-    font-size: 0.95rem;
-    white-space: nowrap;
-    transform-origin: left center;
-    pointer-events: none;
+    touch-action: none;
 }
 
-.projHints svg {
-    flex: none;
+.projGrip[data-dir="w"],
+.projGrip[data-dir="e"] {
+    top: 0;
+    bottom: 0;
+    width: 8px;
+    cursor: ew-resize;
 }
 
-.projHints span:nth-child(1) {
-    top: 4%;
-    color: #e8368f;
-    rotate: -9deg;
+.projGrip[data-dir="w"] { left: 0; }
+.projGrip[data-dir="e"] { right: 0; }
+
+.projGrip[data-dir="s"] {
+    inset-inline: 0;
+    bottom: 0;
+    height: 8px;
+    cursor: ns-resize;
 }
 
-.projHints span:nth-child(2) {
-    top: 40%;
-    left: calc(100% + 44px);
-    color: #f08a00;
-    rotate: 5deg;
+.projGrip[data-dir="sw"],
+.projGrip[data-dir="se"] {
+    bottom: 0;
+    width: 28px;
+    height: 28px;
 }
 
-.projHints span:nth-child(2) svg {
-    scale: 1 -1;
-}
-
-.projHints span:nth-child(3) {
-    top: 76%;
-    left: calc(100% + 22px);
-    color: #3b6cf6;
-    rotate: -4deg;
-}
-
-/* Zoomed: the screenshot covers the whole window body */
-.projZoomed {
-    position: absolute;
-    inset: 0;
-    padding: 1.5rem;
-    border: 0;
-    background: #fff;
-    cursor: zoom-out;
-}
-
-.projZoomed img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
-
-.projZoom:focus-visible,
-.projZoomed:focus-visible {
-    outline: 2px solid var(--color-Pine);
-    outline-offset: -2px;
-}
+.projGrip[data-dir="sw"] { left: 0; cursor: nesw-resize; }
+.projGrip[data-dir="se"] { right: 0; cursor: nwse-resize; }
 
 @media (prefers-reduced-motion: reduce) {
     .projPanel.is-active {
@@ -258,14 +242,14 @@
     }
 }
 
-/* Not enough room beside the thumbnail */
-@media (max-width: 1024px) {
-    .projHints {
+@media (pointer: coarse) {
+    .projGrip {
         display: none;
     }
 }
 
 @media (max-width: 768px) {
+    /* Gutter keeps the background visible beside the phone */
     .projects {
         padding-inline: 1rem;
     }
@@ -275,63 +259,69 @@
         margin-bottom: 1.25rem;
     }
 
-    .projLayout {
-        grid-template-columns: minmax(0, 1fr);
-        gap: 0.75rem;
+    /* The window is just a column here: tabs on top, phone below. Never resized */
+    .projWindow {
+        width: min(100%, 380px);
+        height: auto;
+        gap: 1rem;
+        overflow: visible;
+        background: none;
+        border: 0;
+        border-radius: 0;
     }
 
-    /* The list turns into a row you can swipe; padding keeps the focus ring from clipping */
-    .projTabs {
-        flex-direction: row;
-        gap: 0.5rem;
-        padding: 4px;
-        margin: -4px;
-        overflow-x: auto;
-        scrollbar-width: none;
-    }
-
-    .projTabs::-webkit-scrollbar {
+    .projGrip {
         display: none;
     }
 
-    .projTabs button {
-        flex: none;
-        padding: 0.65rem 0.9rem;
-        font-size: 0.85rem;
-        white-space: nowrap;
+    /* The tabs turn into a two column grid, so every project is on screen with nothing to swipe */
+    .projTabs {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.5rem;
+        background: none;
+        border: 0;
     }
 
-    .projPanel,
-    .projZoomed {
-        padding: 1rem;
+    /* An odd one out at the end takes the whole row */
+    .projTabs button:last-child:nth-child(odd) {
+        grid-column: span 2;
     }
 
-    /* The window is no wider than the thumbnail here, so zooming gains nothing */
-    .projZoom {
-        pointer-events: none;
-    }
-
-    .projZoomed img {
-        object-position: top;
-    }
-
-    .projPanel p,
-    .projPanel li {
+    .projTabs button,
+    .projTabs button:last-child {
+        padding: 0.55rem 0.5rem;
+        margin: 0;
+        border: 1px solid var(--grid-color);
+        border-radius: 8px;
+        background: #fff;
         font-size: 0.8rem;
     }
 
+    .projTabs button[aria-selected="true"] {
+        background: var(--color-Pine);
+        border-color: var(--color-Pine);
+        color: #fff;
+    }
+
+    .projTabs button:focus-visible {
+        outline-offset: 2px;
+    }
+
     /* Phone instead of terminal: bezel, Dynamic Island, home indicator */
-    .projWindow {
+    .projFrame {
         position: relative;
+        display: block;
+        overflow: hidden;
+        padding-bottom: 1.25rem;
+        background: #fff;
         border: 10px solid var(--color-text);
         border-radius: 44px;
-        padding-bottom: 1.25rem;
     }
 
     .projBar {
         justify-content: center;
         padding: 0.6rem 0 0.25rem;
-        border-bottom: 0;
     }
 
     .projBar span,
@@ -341,13 +331,13 @@
 
     .projBar::before {
         content: "";
-        width: 96px;
-        height: 26px;
-        border-radius: 13px;
+        width: 72px;
+        height: 20px;
+        border-radius: 10px;
         background: var(--color-text);
     }
 
-    .projWindow::after {
+    .projFrame::after {
         content: "";
         position: absolute;
         bottom: 0.5rem;
@@ -357,5 +347,21 @@
         border-radius: 3px;
         background: var(--color-text-muted);
         translate: -50% 0;
+    }
+
+    .projPanel {
+        padding: 1rem;
+    }
+
+    .projPanel h3 {
+        display: block;
+    }
+
+    .projPanel .projDesc {
+        font-size: 1rem;
+    }
+
+    .projPanel .projLinks {
+        font-size: 0.95rem;
     }
 }
